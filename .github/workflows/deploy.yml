@@ -1,0 +1,99 @@
+name: Deploy Aneta Reports to LXC g4-apps
+
+on:
+  push:
+    branches: [ prod ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Static Site Generator
+        run: |
+          python3 build.py
+
+      - name: Install Cloudflared on Runner
+        run: |
+          curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+          sudo dpkg -i cloudflared.deb
+
+      - name: Deploy to LXC g4-apps via SSH (Cloudflare Tunnel)
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+          # Configure SSH to proxy through cloudflared
+          cat << EOF >> ~/.ssh/config
+          Host $DEPLOY_HOST
+            User $DEPLOY_USER
+            IdentityFile ~/.ssh/deploy_key
+            StrictHostKeyChecking no
+            ProxyCommand cloudflared access ssh --hostname %h
+          EOF
+
+          # Ensure destination directory exists on LXC
+          ssh $DEPLOY_HOST "
+            sudo mkdir -p /var/www/report
+            sudo chown -R $DEPLOY_USER:$DEPLOY_USER /var/www/report
+          "
+
+          # Sync generated static files to /var/www/report
+          rsync -avz -e "ssh" --delete \
+            --exclude '.git' \
+            --exclude '.github' \
+            ./ $DEPLOY_HOST:/var/www/report/
+
+          # Ensure routes, permissions, and reload Nginx
+          ssh $DEPLOY_HOST "
+            set -e
+            echo '==> Verifying web routes in /var/www/report...'
+            cd /var/www/report
+            
+            # Ensure route for /octa-telkomsel-model-comparison
+            if [ -f octa-telkomsel-model-comparison.html ] && [ ! -d octa-telkomsel-model-comparison ]; then
+              mkdir -p octa-telkomsel-model-comparison
+              cp octa-telkomsel-model-comparison.html octa-telkomsel-model-comparison/index.html
+            fi
+
+            # Set web server ownership & permissions
+            sudo chown -R www-data:www-data /var/www/report || true
+            sudo chmod -R 755 /var/www/report
+
+            # Reload Nginx service
+            echo '==> Reloading Nginx...'
+            if command -v systemctl >/dev/null 2>&1; then
+              sudo systemctl reload nginx || sudo service nginx reload
+            else
+              sudo nginx -s reload
+            fi
+            echo '==> Deployment to report.aneta.my.id successfully completed!'
+          "
+
+      - name: Send Telegram Notification
+        if: success()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.DEVINA_TELEGRAM_BOT_TOKEN || secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.DEVINA_TELEGRAM_CHAT_ID || secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
+            MESSAGE="📊 <b>Aneta Reports Deployed Successfully!</b>%0A%0A<b>Site:</b> https://report.aneta.my.id%0A<b>Branch:</b> ${{ github.ref_name }}%0A<b>Commit:</b> ${{ github.sha }}%0A<b>Target:</b> LXC g4-apps (/var/www/report)"
+            curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              -d "chat_id=${TELEGRAM_CHAT_ID}" \
+              -d "parse_mode=HTML" \
+              -d "text=${MESSAGE}"
+          fi

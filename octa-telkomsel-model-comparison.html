@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCTA Telkomsel AI Model Pricing & Worthiness Comparison</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            telkomsel: '#ED1D24',
+            darkbg: '#0B0F19',
+            cardbg: '#111827',
+            bordercol: '#1F2937'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0B0F19;
+      color: #E2E8F0;
+    }
+    .glow-red {
+      box-shadow: 0 0 50px -10px rgba(237, 29, 36, 0.2);
+    }
+    .glow-card {
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0F19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1F2937;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #374151;
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased flex flex-col justify-between">
+
+  <!-- Header & Hero -->
+  <header class="border-b border-gray-800 bg-gray-950/70 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-xl bg-telkomsel/20 border border-telkomsel/40 flex items-center justify-center font-black text-telkomsel text-xl shadow-lg shadow-telkomsel/20">
+          O
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-xl font-bold tracking-tight text-white">OCTA Telkomsel — AI Model Comparison</h1>
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/30">Official Rates</span>
+          </div>
+          <p class="text-xs text-gray-400">Analisis Komparasi 35 Model AI: Harga OCTA vs Retail Provider Resmi (Rupiah & Sumber)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 text-xs">
+        <div class="bg-gray-900 border border-gray-800 rounded-lg px-3 py-1.5 text-gray-300">
+          <span class="text-gray-500">Kurs Spot:</span> <strong class="text-emerald-400 font-mono">Rp 17.850 / USD</strong>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-lg px-3 py-1.5 text-gray-300">
+          <span class="text-gray-500">Nilai Kredit:</span> <strong class="text-cyan-400 font-mono">1 Kredit = Rp 1</strong>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-1">
+    
+    <!-- Executive KPI Summary Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-5 glow-card">
+        <div class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Total Model Aktif</div>
+        <div class="text-3xl font-extrabold text-white flex items-baseline gap-2">
+          35 <span class="text-xs font-normal text-gray-400">model AI</span>
+        </div>
+        <div class="mt-2 text-xs text-gray-400 flex items-center gap-1.5">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+          9 Provider Top (Anthropic, OpenAI, Google, DeepSeek, xAI, dll)
+        </div>
+      </div>
+
+      <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-5 glow-card">
+        <div class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Diskon Platform OCTA</div>
+        <div class="text-3xl font-extrabold text-emerald-400 flex items-baseline gap-2">
+          10% – 20% <span class="text-xs font-normal text-gray-400">potongan</span>
+        </div>
+        <div class="mt-2 text-xs text-gray-400">
+          Tier diskon platform langsung pada input/output kredit
+        </div>
+      </div>
+
+      <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-5 glow-card">
+        <div class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Net Efisiensi Biaya</div>
+        <div class="text-3xl font-extrabold text-cyan-400 flex items-baseline gap-2">
+          +11.9% <span class="text-xs font-normal text-gray-400">rata-rata</span>
+        </div>
+        <div class="mt-2 text-xs text-gray-400">
+          Lebih hemat vs direct billing USD valas (+ bebas surcharge kartu kredit)
+        </div>
+      </div>
+
+      <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-5 glow-card">
+        <div class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Best Value Flagship</div>
+        <div class="text-xl font-bold text-white truncate">Claude Sonnet 5</div>
+        <div class="mt-2 text-xs text-gray-400">
+          Input <strong class="text-emerald-400 font-mono">Rp 31.458</strong> / 1M Token (Hemat ~Rp 4.243)
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls: Search & Filter Tabs -->
+    <div class="bg-gray-900/80 border border-gray-800 rounded-2xl p-4 mb-6 backdrop-blur flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
+      
+      <!-- Search -->
+      <div class="relative flex-1 max-w-md">
+        <input 
+          id="searchInput" 
+          type="text" 
+          placeholder="Cari model atau provider (contoh: Sonnet, GPT, Gemini, Kimi)..." 
+          class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-red-500/60 focus:ring-1 focus:ring-red-500/50"
+        >
+        <span class="absolute right-3 top-2.5 text-gray-500 text-xs">Press /</span>
+      </div>
+
+      <!-- Provider Filter Buttons -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-2 md:pb-0 text-xs no-scrollbar">
+        <button onclick="setProvider('all')" data-provider="all" class="filter-btn active px-3 py-1.5 rounded-lg border border-red-500/40 bg-red-500/20 text-red-400 font-semibold whitespace-nowrap">Semua (35)</button>
+        <button onclick="setProvider('Anthropic')" data-provider="Anthropic" class="filter-btn px-3 py-1.5 rounded-lg border border-gray-800 bg-gray-950 text-gray-400 hover:text-gray-200 whitespace-nowrap">Anthropic (10)</button>
+        <button onclick="setProvider('Google')" data-provider="Google" class="filter-btn px-3 py-1.5 rounded-lg border border-gray-800 bg-gray-950 text-gray-400 hover:text-gray-200 whitespace-nowrap">Google (10)</button>
+        <button onclick="setProvider('Openai')" data-provider="Openai" class="filter-btn px-3 py-1.5 rounded-lg border border-gray-800 bg-gray-950 text-gray-400 hover:text-gray-200 whitespace-nowrap">OpenAI (5)</button>
+        <button onclick="setProvider('Xai')" data-provider="Xai" class="filter-btn px-3 py-1.5 rounded-lg border border-gray-800 bg-gray-950 text-gray-400 hover:text-gray-200 whitespace-nowrap">xAI (3)</button>
+        <button onclick="setProvider('Deepseek')" data-provider="Deepseek" class="filter-btn px-3 py-1.5 rounded-lg border border-gray-800 bg-gray-950 text-gray-400 hover:text-gray-200 whitespace-nowrap">DeepSeek (1)</button>
+        <button onclick="setProvider('Others')" data-provider="Others" class="filter-btn px-3 py-1.5 rounded-lg border border-gray-800 bg-gray-950 text-gray-400 hover:text-gray-200 whitespace-nowrap">Lainnya (6)</button>
+      </div>
+
+    </div>
+
+    <!-- Data Table Card -->
+    <div class="bg-gray-900/60 border border-gray-800 rounded-2xl overflow-hidden shadow-2xl">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-gray-300">
+          <thead class="bg-gray-950/80 text-xs uppercase tracking-wider text-gray-400 border-b border-gray-800">
+            <tr>
+              <th scope="col" class="py-3.5 px-4 font-semibold">Model AI & Info</th>
+              <th scope="col" class="py-3.5 px-4 font-semibold">Penyedia & Sumber Retail</th>
+              <th scope="col" class="py-3.5 px-4 font-semibold text-right">Harga OCTA (Input / 1M)</th>
+              <th scope="col" class="py-3.5 px-4 font-semibold text-right">Harga OCTA (Output / 1M)</th>
+              <th scope="col" class="py-3.5 px-4 font-semibold text-right">Retail Resmi (Input)</th>
+              <th scope="col" class="py-3.5 px-4 font-semibold text-right">Retail Resmi (Output)</th>
+              <th scope="col" class="py-3.5 px-4 font-semibold text-center">Diskon / Hemat</th>
+              <th scope="col" class="py-3.5 px-4 font-semibold text-center">Kelayakan (Worthiness)</th>
+            </tr>
+          </thead>
+          <tbody id="modelsTableBody" class="divide-y divide-gray-800/60">
+            <!-- Dynamic rows populated via JS -->
+          </tbody>
+        </table>
+      </div>
+      <div class="px-4 py-3 bg-gray-950/60 border-t border-gray-800 text-xs text-gray-400 flex items-center justify-between">
+        <div id="tableCounter">Menampilkan 35 dari 35 model AI</div>
+        <div>Semua mata uang dalam Rupiah (IDR). 1 Kredit = Rp 1.</div>
+      </div>
+    </div>
+
+    <!-- Verified Sources Grid Section -->
+    <div class="mt-12">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <span>🔗</span> Daftar Sumber Resmi Harga Retail (Verified Documentation)
+          </h2>
+          <p class="text-xs text-gray-400">Tautan dokumentasi resmi dan portal penagihan developer masing-masing penyedia model AI</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
+          <div>
+            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">Anthropic Claude API</div>
+            <div class="text-xs text-gray-400">anthropic.com/pricing</div>
+          </div>
+          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
+        </a>
+
+        <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
+          <div>
+            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">OpenAI API Pricing</div>
+            <div class="text-xs text-gray-400">openai.com/api/pricing</div>
+          </div>
+          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
+        </a>
+
+        <a href="https://ai.google.dev/pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
+          <div>
+            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">Google Gemini Developer API</div>
+            <div class="text-xs text-gray-400">ai.google.dev/pricing</div>
+          </div>
+          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
+        </a>
+
+        <a href="https://platform.deepseek.com/api_docs/pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
+          <div>
+            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">DeepSeek Open Platform</div>
+            <div class="text-xs text-gray-400">platform.deepseek.com</div>
+          </div>
+          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
+        </a>
+
+        <a href="https://docs.x.ai/docs/overview#pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
+          <div>
+            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">xAI Grok Developer Docs</div>
+            <div class="text-xs text-gray-400">docs.x.ai/overview#pricing</div>
+          </div>
+          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
+        </a>
+
+        <a href="https://platform.moonshot.cn/docs/pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
+          <div>
+            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">Moonshot AI (Kimi)</div>
+            <div class="text-xs text-gray-400">platform.moonshot.cn/pricing</div>
+          </div>
+          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
+        </a>
+
+        <a href="https://platform.minimaxi.com/document/pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
+          <div>
+            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">MiniMax Open Platform</div>
+            <div class="text-xs text-gray-400">platform.minimaxi.com/pricing</div>
+          </div>
+          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
+        </a>
+
+        <a href="https://www.alibabacloud.com/help/en/model-studio/developer-reference/billing-for-model-studio" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
+          <div>
+            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">Alibaba Cloud Model Studio (Qwen)</div>
+            <div class="text-xs text-gray-400">alibabacloud.com/model-studio</div>
+          </div>
+          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
+        </a>
+
+        <a href="https://open.bigmodel.cn/pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
+          <div>
+            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">Zhipu AI (GLM) Platform</div>
+            <div class="text-xs text-gray-400">open.bigmodel.cn/pricing</div>
+          </div>
+          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Analytical Deep Dive / Findings -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+      
+      <div class="bg-gray-900/40 border border-gray-800 rounded-2xl p-6">
+        <div class="h-8 w-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold mb-3">✓</div>
+        <h3 class="text-base font-bold text-white mb-2">1. Keuntungan Pembayaran Rupiah</h3>
+        <p class="text-xs text-gray-400 leading-relaxed">
+          OCTA mengeliminasi biaya konversi mata uang asing (foreign exchange charge) dan spread kurs kartu kredit bank (yang umumnya mengenakan 2.5% - 4% di atas kurs tengah BI). Top-up dapat dilakukan dengan metode pembayaran domestik (QRIS, VA Bank, Pulsa Telkomsel).
+        </p>
+      </div>
+
+      <div class="bg-gray-900/40 border border-gray-800 rounded-2xl p-6">
+        <div class="h-8 w-8 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center font-bold mb-3">⇄</div>
+        <h3 class="text-base font-bold text-white mb-2">2. Single API Balance (Multi-Model)</h3>
+        <p class="text-xs text-gray-400 leading-relaxed">
+          Alih-alih mengikat deposit prepaid minimum $5–$20 di masing-masing platform terpisah (OpenAI, Anthropic Console, Google Cloud Vertex, xAI), pengguna cukup mengisi 1 saldo OCTA Kredit untuk mengakses 35 model sekaligus tanpa saldo idle di banyak akun.
+        </p>
+      </div>
+
+      <div class="bg-gray-900/40 border border-gray-800 rounded-2xl p-6">
+        <div class="h-8 w-8 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center font-bold mb-3">★</div>
+        <h3 class="text-base font-bold text-white mb-2">3. Rekomendasi Model Paling Layak</h3>
+        <p class="text-xs text-gray-400 leading-relaxed">
+          <strong class="text-gray-200">Claude Sonnet 5</strong> & <strong class="text-gray-200">GPT-4o</strong> sangat ekonomis untuk pekerjaan analitis harian. Untuk batch task otomatis bervolume tinggi, <strong class="text-gray-200">Gemini 3.1 Flash Lite</strong> dan <strong class="text-gray-200">GPT-4o Mini</strong> memberikan rasio cost-to-performance terbaik.
+        </p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800 py-6 bg-gray-950 mt-12 text-center text-xs text-gray-500">
+    <div class="max-w-7xl mx-auto px-4">
+      Laporan perbandingan harga resmi di-generate secara otomatis via <strong>Dora AI Research Engine</strong> &middot; Hosting di <strong>LXC g4-apps</strong> &middot; report.aneta.my.id
+    </div>
+  </footer>
+
+  <!-- Script Data & Interactive Filter -->
+  <script>
+    const models = [{"id": "gemini-2.5-flash-image", "name": "gemini-2.5-flash-image", "provider": "Google", "mode": "image_generation", "context": "33k", "discount_platform": 10, "in_octa": 4719, "out_octa": 471858, "in_usd": 0.3, "out_usd": 30.0, "in_retail": 5355, "out_retail": 535500, "diff_in": 636, "diff_out": 63642, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": 450, "source": {"name": "Google Gemini API Pricing", "url": "https://ai.google.dev/pricing", "badge": "ai.google.dev/pricing"}}, {"id": "claude-opus-4-6", "name": "claude-opus-4-6", "provider": "Anthropic", "mode": "chat", "context": "1000k", "discount_platform": 10, "in_octa": 78643, "out_octa": 393215, "in_usd": 5.0, "out_usd": 25.0, "in_retail": 89250, "out_retail": 446250, "diff_in": 10607, "diff_out": 53035, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Anthropic Official Claude Pricing", "url": "https://www.anthropic.com/pricing", "badge": "anthropic.com/pricing"}}, {"id": "claude-sonnet-5", "name": "claude-sonnet-5", "provider": "Anthropic", "mode": "chat", "context": "1000k", "discount_platform": 10, "in_octa": 31458, "out_octa": 157286, "in_usd": 2.0001, "out_usd": 10.0, "in_retail": 35701, "out_retail": 178500, "diff_in": 4243, "diff_out": 21214, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Anthropic Official Claude Pricing", "url": "https://www.anthropic.com/pricing", "badge": "anthropic.com/pricing"}}, {"id": "claude-opus-5", "name": "claude-opus-5", "provider": "Anthropic", "mode": "chat", "context": "1000k", "discount_platform": 10, "in_octa": 78643, "out_octa": 393215, "in_usd": 5.0, "out_usd": 25.0, "in_retail": 89250, "out_retail": 446250, "diff_in": 10607, "diff_out": 53035, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Anthropic Official Claude Pricing", "url": "https://www.anthropic.com/pricing", "badge": "anthropic.com/pricing"}}, {"id": "kimi-k2.7-code", "name": "kimi-k2.7-code", "provider": "Moonshot", "mode": "chat", "context": "1M", "discount_platform": 15, "in_octa": 14156, "out_octa": 58870, "in_usd": 0.953, "out_usd": 3.963, "in_retail": 17010, "out_retail": 70740, "diff_in": 2854, "diff_out": 11870, "pct_save_in": 16.8, "pct_save_out": 16.8, "avg_pct_save": 16.8, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 16.8% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Moonshot AI (Kimi) Pricing", "url": "https://platform.moonshot.cn/docs/pricing", "badge": "platform.moonshot.cn"}}, {"id": "gpt-4o", "name": "gpt-4o", "provider": "Openai", "mode": "chat", "context": "128k", "discount_platform": 10, "in_octa": 39322, "out_octa": 157286, "in_usd": 2.5, "out_usd": 10.0, "in_retail": 44626, "out_retail": 178500, "diff_in": 5304, "diff_out": 21214, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "OpenAI Official API Pricing", "url": "https://openai.com/api/pricing/", "badge": "openai.com/api/pricing"}}, {"id": "grok-4.3", "name": "grok-4.3", "provider": "Xai", "mode": "chat", "context": "1M", "discount_platform": 0, "in_octa": 21122, "out_octa": 42243, "in_usd": 1.2086, "out_usd": 2.4172, "in_retail": 21574, "out_retail": 43146, "diff_in": 452, "diff_out": 903, "pct_save_in": 2.1, "pct_save_out": 2.1, "avg_pct_save": 2.1, "worth_badge": "Cukup", "worth_color": "amber", "worth_reason": "Harga kompetitif setara direct billing tanpa forex risk", "image_credit": null, "source": {"name": "xAI Developer Pricing", "url": "https://docs.x.ai/docs/overview#pricing", "badge": "docs.x.ai/pricing"}}, {"id": "claude-opus-5-5", "name": "claude-opus-5-5", "provider": "Anthropic", "mode": "chat", "context": "1000k", "discount_platform": 10, "in_octa": 62915, "out_octa": 314572, "in_usd": 4.0, "out_usd": 20.0, "in_retail": 71401, "out_retail": 357000, "diff_in": 8486, "diff_out": 42428, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Anthropic Official Claude Pricing", "url": "https://www.anthropic.com/pricing", "badge": "anthropic.com/pricing"}}, {"id": "claude-opus-4-5-20251101", "name": "claude-opus-4-5-20251101", "provider": "Anthropic", "mode": "chat", "context": "200k", "discount_platform": 10, "in_octa": 78643, "out_octa": 393215, "in_usd": 5.0, "out_usd": 25.0, "in_retail": 89250, "out_retail": 446250, "diff_in": 10607, "diff_out": 53035, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Anthropic Official Claude Pricing", "url": "https://www.anthropic.com/pricing", "badge": "anthropic.com/pricing"}}, {"id": "claude-sonnet-4-6", "name": "claude-sonnet-4-6", "provider": "Anthropic", "mode": "chat", "context": "1000k", "discount_platform": 10, "in_octa": 47186, "out_octa": 235929, "in_usd": 3.0, "out_usd": 15.0, "in_retail": 53550, "out_retail": 267750, "diff_in": 6364, "diff_out": 31821, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Anthropic Official Claude Pricing", "url": "https://www.anthropic.com/pricing", "badge": "anthropic.com/pricing"}}, {"id": "claude-opus-4-7", "name": "claude-opus-4-7", "provider": "Anthropic", "mode": "chat", "context": "1000k", "discount_platform": 10, "in_octa": 78643, "out_octa": 393215, "in_usd": 5.0, "out_usd": 25.0, "in_retail": 89250, "out_retail": 446250, "diff_in": 10607, "diff_out": 53035, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Anthropic Official Claude Pricing", "url": "https://www.anthropic.com/pricing", "badge": "anthropic.com/pricing"}}, {"id": "claude-haiku-4-5-20251001", "name": "claude-haiku-4-5-20251001", "provider": "Anthropic", "mode": "chat", "context": "200k", "discount_platform": 10, "in_octa": 15729, "out_octa": 78643, "in_usd": 1.0, "out_usd": 5.0, "in_retail": 17850, "out_retail": 89250, "diff_in": 2121, "diff_out": 10607, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Anthropic Official Claude Pricing", "url": "https://www.anthropic.com/pricing", "badge": "anthropic.com/pricing"}}, {"id": "claude-sonnet-4-5-20250929", "name": "claude-sonnet-4-5-20250929", "provider": "Anthropic", "mode": "chat", "context": "200k", "discount_platform": 10, "in_octa": 47186, "out_octa": 235929, "in_usd": 3.0, "out_usd": 15.0, "in_retail": 53550, "out_retail": 267750, "diff_in": 6364, "diff_out": 31821, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Anthropic Official Claude Pricing", "url": "https://www.anthropic.com/pricing", "badge": "anthropic.com/pricing"}}, {"id": "gpt-5.4-mini", "name": "gpt-5.4-mini", "provider": "Openai", "mode": "chat", "context": "272k", "discount_platform": 10, "in_octa": 11909, "out_octa": 70779, "in_usd": 0.7572, "out_usd": 4.5, "in_retail": 13515, "out_retail": 80325, "diff_in": 1606, "diff_out": 9546, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "OpenAI Official API Pricing", "url": "https://openai.com/api/pricing/", "badge": "openai.com/api/pricing"}}, {"id": "grok-4.20-0309-reasoning", "name": "grok-4.20-0309-reasoning", "provider": "Xai", "mode": "chat", "context": "1M", "discount_platform": 0, "in_octa": 21122, "out_octa": 42243, "in_usd": 1.2086, "out_usd": 2.4172, "in_retail": 21574, "out_retail": 43146, "diff_in": 452, "diff_out": 903, "pct_save_in": 2.1, "pct_save_out": 2.1, "avg_pct_save": 2.1, "worth_badge": "Cukup", "worth_color": "amber", "worth_reason": "Harga kompetitif setara direct billing tanpa forex risk", "image_credit": null, "source": {"name": "xAI Developer Pricing", "url": "https://docs.x.ai/docs/overview#pricing", "badge": "docs.x.ai/pricing"}}, {"id": "gpt-5.4-nano", "name": "gpt-5.4-nano", "provider": "Openai", "mode": "chat", "context": "272k", "discount_platform": 10, "in_octa": 3146, "out_octa": 19774, "in_usd": 0.2, "out_usd": 1.2572, "in_retail": 3570, "out_retail": 22441, "diff_in": 424, "diff_out": 2667, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "OpenAI Official API Pricing", "url": "https://openai.com/api/pricing/", "badge": "openai.com/api/pricing"}}, {"id": "claude-opus-4-8", "name": "claude-opus-4-8", "provider": "Anthropic", "mode": "chat", "context": "1000k", "discount_platform": 10, "in_octa": 78643, "out_octa": 393215, "in_usd": 5.0, "out_usd": 25.0, "in_retail": 89250, "out_retail": 446250, "diff_in": 10607, "diff_out": 53035, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Anthropic Official Claude Pricing", "url": "https://www.anthropic.com/pricing", "badge": "anthropic.com/pricing"}}, {"id": "grok-4-1-fast-reasoning", "name": "grok-4-1-fast-reasoning", "provider": "Xai", "mode": "chat", "context": "1M", "discount_platform": 0, "in_octa": 3371, "out_octa": 8539, "in_usd": 0.1929, "out_usd": 0.4886, "in_retail": 3443, "out_retail": 8722, "diff_in": 72, "diff_out": 183, "pct_save_in": 2.1, "pct_save_out": 2.1, "avg_pct_save": 2.1, "worth_badge": "Cukup", "worth_color": "amber", "worth_reason": "Harga kompetitif setara direct billing tanpa forex risk", "image_credit": null, "source": {"name": "xAI Developer Pricing", "url": "https://docs.x.ai/docs/overview#pricing", "badge": "docs.x.ai/pricing"}}, {"id": "gpt-5.5", "name": "gpt-5.5", "provider": "Openai", "mode": "chat", "context": "1050k", "discount_platform": 10, "in_octa": 78643, "out_octa": 471858, "in_usd": 5.0, "out_usd": 30.0, "in_retail": 89250, "out_retail": 535500, "diff_in": 10607, "diff_out": 63642, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "OpenAI Official API Pricing", "url": "https://openai.com/api/pricing/", "badge": "openai.com/api/pricing"}}, {"id": "glm-5.3", "name": "glm-5.3", "provider": "Zhipu", "mode": "chat", "context": "1M", "discount_platform": 0, "in_octa": 21571, "out_octa": 75048, "in_usd": 1.2343, "out_usd": 4.2943, "in_retail": 22032, "out_retail": 76653, "diff_in": 461, "diff_out": 1605, "pct_save_in": 2.1, "pct_save_out": 2.1, "avg_pct_save": 2.1, "worth_badge": "Cukup", "worth_color": "amber", "worth_reason": "Harga kompetitif setara direct billing tanpa forex risk", "image_credit": null, "source": {"name": "Zhipu AI (GLM) Open Platform", "url": "https://open.bigmodel.cn/pricing", "badge": "open.bigmodel.cn"}}, {"id": "MiniMax-M2.7", "name": "MiniMax-M2.7", "provider": "Minimax", "mode": "chat", "context": "1M", "discount_platform": 0, "in_octa": 5393, "out_octa": 21571, "in_usd": 0.3086, "out_usd": 1.2343, "in_retail": 5508, "out_retail": 22032, "diff_in": 115, "diff_out": 461, "pct_save_in": 2.1, "pct_save_out": 2.1, "avg_pct_save": 2.1, "worth_badge": "Cukup", "worth_color": "amber", "worth_reason": "Harga kompetitif setara direct billing tanpa forex risk", "image_credit": null, "source": {"name": "MiniMax Developer Pricing", "url": "https://platform.minimaxi.com/document/pricing", "badge": "platform.minimaxi.com"}}, {"id": "glm-5.2", "name": "glm-5.2", "provider": "Zhipu", "mode": "chat", "context": "1M", "discount_platform": 15, "in_octa": 17527, "out_octa": 61117, "in_usd": 1.1799, "out_usd": 4.1143, "in_retail": 21061, "out_retail": 73440, "diff_in": 3534, "diff_out": 12323, "pct_save_in": 16.8, "pct_save_out": 16.8, "avg_pct_save": 16.8, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 16.8% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Zhipu AI (GLM) Open Platform", "url": "https://open.bigmodel.cn/pricing", "badge": "open.bigmodel.cn"}}, {"id": "qwen3.7-max", "name": "qwen3.7-max", "provider": "Alibaba", "mode": "chat", "context": "1M", "discount_platform": 15, "in_octa": 36626, "out_octa": 109651, "in_usd": 2.4656, "out_usd": 7.3815, "in_retail": 44011, "out_retail": 131760, "diff_in": 7385, "diff_out": 22109, "pct_save_in": 16.8, "pct_save_out": 16.8, "avg_pct_save": 16.8, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 16.8% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Alibaba Cloud Model Studio (Qwen)", "url": "https://www.alibabacloud.com/help/en/model-studio/developer-reference/billing-for-model-studio", "badge": "alibabacloud.com"}}, {"id": "MiniMax-M3", "name": "MiniMax-M3", "provider": "Minimax", "mode": "chat", "context": "1M", "discount_platform": 20, "in_octa": 8089, "out_octa": 32356, "in_usd": 0.5786, "out_usd": 2.3143, "in_retail": 10328, "out_retail": 41310, "diff_in": 2239, "diff_out": 8954, "pct_save_in": 21.7, "pct_save_out": 21.7, "avg_pct_save": 21.7, "worth_badge": "Sangat Tinggi", "worth_color": "emerald", "worth_reason": "Hemat 21.7%, diskon tier platform besar (20%)", "image_credit": null, "source": {"name": "MiniMax Developer Pricing", "url": "https://platform.minimaxi.com/document/pricing", "badge": "platform.minimaxi.com"}}, {"id": "gemini-3.7-flash", "name": "gemini-3.7-flash", "provider": "Google", "mode": "chat", "context": "1049k", "discount_platform": 10, "in_octa": 11909, "out_octa": 59095, "in_usd": 0.7572, "out_usd": 3.7572, "in_retail": 13515, "out_retail": 67065, "diff_in": 1606, "diff_out": 7970, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Google Gemini API Pricing", "url": "https://ai.google.dev/pricing", "badge": "ai.google.dev/pricing"}}, {"id": "gemini-3.8-flash", "name": "gemini-3.8-flash", "provider": "Google", "mode": "chat", "context": "1049k", "discount_platform": 10, "in_octa": 11909, "out_octa": 59095, "in_usd": 0.7572, "out_usd": 3.7572, "in_retail": 13515, "out_retail": 67065, "diff_in": 1606, "diff_out": 7970, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Google Gemini API Pricing", "url": "https://ai.google.dev/pricing", "badge": "ai.google.dev/pricing"}}, {"id": "gemini-3.5-flash-global", "name": "gemini-3.5-flash-global", "provider": "Google", "mode": "chat", "context": "1049k", "discount_platform": 10, "in_octa": 23593, "out_octa": 141558, "in_usd": 1.5, "out_usd": 9.0, "in_retail": 26775, "out_retail": 160651, "diff_in": 3182, "diff_out": 19093, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Google Gemini API Pricing", "url": "https://ai.google.dev/pricing", "badge": "ai.google.dev/pricing"}}, {"id": "gemini-3-flash-preview", "name": "gemini-3-flash-preview", "provider": "Google", "mode": "chat", "context": "1049k", "discount_platform": 10, "in_octa": 7865, "out_octa": 47186, "in_usd": 0.5, "out_usd": 3.0, "in_retail": 8926, "out_retail": 53550, "diff_in": 1061, "diff_out": 6364, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Google Gemini API Pricing", "url": "https://ai.google.dev/pricing", "badge": "ai.google.dev/pricing"}}, {"id": "gemini-3-pro-image-preview", "name": "gemini-3-pro-image-preview", "provider": "Google", "mode": "image_generation", "context": "66k", "discount_platform": 10, "in_octa": 31458, "out_octa": 188743, "in_usd": 2.0001, "out_usd": 12.0, "in_retail": 35701, "out_retail": 214200, "diff_in": 4243, "diff_out": 25457, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": 1798, "source": {"name": "Google Gemini API Pricing", "url": "https://ai.google.dev/pricing", "badge": "ai.google.dev/pricing"}}, {"id": "gemini-3.1-flash-lite-preview", "name": "gemini-3.1-flash-lite-preview", "provider": "Google", "mode": "chat", "context": "1049k", "discount_platform": 10, "in_octa": 4045, "out_octa": 23593, "in_usd": 0.2572, "out_usd": 1.5, "in_retail": 4591, "out_retail": 26775, "diff_in": 546, "diff_out": 3182, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Google Gemini API Pricing", "url": "https://ai.google.dev/pricing", "badge": "ai.google.dev/pricing"}}, {"id": "gemini-3.6-flash", "name": "gemini-3.6-flash", "provider": "Google", "mode": "chat", "context": "1049k", "discount_platform": 10, "in_octa": 11909, "out_octa": 59095, "in_usd": 0.7572, "out_usd": 3.7572, "in_retail": 13515, "out_retail": 67065, "diff_in": 1606, "diff_out": 7970, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Google Gemini API Pricing", "url": "https://ai.google.dev/pricing", "badge": "ai.google.dev/pricing"}}, {"id": "gemini-3.1-pro-preview", "name": "gemini-3.1-pro-preview", "provider": "Google", "mode": "chat", "context": "1049k", "discount_platform": 10, "in_octa": 31458, "out_octa": 188743, "in_usd": 2.0001, "out_usd": 12.0, "in_retail": 35701, "out_retail": 214200, "diff_in": 4243, "diff_out": 25457, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "Google Gemini API Pricing", "url": "https://ai.google.dev/pricing", "badge": "ai.google.dev/pricing"}}, {"id": "deepseek-v4-pro-0813", "name": "deepseek-v4-pro-0813", "provider": "Deepseek", "mode": "chat", "context": "131k", "discount_platform": 15, "in_octa": 26065, "out_octa": 52354, "in_usd": 1.7547, "out_usd": 3.5244, "in_retail": 31321, "out_retail": 62910, "diff_in": 5256, "diff_out": 10556, "pct_save_in": 16.8, "pct_save_out": 16.8, "avg_pct_save": 16.8, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 16.8% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "DeepSeek Platform Pricing", "url": "https://platform.deepseek.com/api_docs/pricing", "badge": "platform.deepseek.com"}}, {"id": "gemini-3.1-flash-lite-image", "name": "gemini-3.1-flash-lite-image", "provider": "Google", "mode": "image_generation", "context": "66k", "discount_platform": 10, "in_octa": 4045, "out_octa": 23593, "in_usd": 0.2572, "out_usd": 1.5, "in_retail": 4591, "out_retail": 26775, "diff_in": 546, "diff_out": 3182, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": 225, "source": {"name": "Google Gemini API Pricing", "url": "https://ai.google.dev/pricing", "badge": "ai.google.dev/pricing"}}, {"id": "gpt-4o-mini", "name": "gpt-4o-mini", "provider": "Openai", "mode": "chat", "context": "128k", "discount_platform": 10, "in_octa": 2472, "out_octa": 9438, "in_usd": 0.1572, "out_usd": 0.6001, "in_retail": 2805, "out_retail": 10711, "diff_in": 333, "diff_out": 1273, "pct_save_in": 11.9, "pct_save_out": 11.9, "avg_pct_save": 11.9, "worth_badge": "Tinggi", "worth_color": "blue", "worth_reason": "Hemat 11.9% dibanding rate retail valas langsung", "image_credit": null, "source": {"name": "OpenAI Official API Pricing", "url": "https://openai.com/api/pricing/", "badge": "openai.com/api/pricing"}}];
+
+    let currentProvider = 'all';
+    let searchQuery = '';
+
+    function formatRupiah(num) {
+      return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(num);
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('modelsTableBody');
+      tbody.innerHTML = '';
+
+      const filtered = models.filter(m => {
+        const matchSearch = m.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                            m.provider.toLowerCase().includes(searchQuery.toLowerCase());
+        
+        if (currentProvider === 'all') return matchSearch;
+        if (currentProvider === 'Others') {
+          return matchSearch && !['Anthropic', 'Google', 'Openai', 'Xai', 'Deepseek'].includes(m.provider);
+        }
+        return matchSearch && m.provider.toLowerCase() === currentProvider.toLowerCase();
+      });
+
+      filtered.forEach(m => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-gray-800/40 transition-colors';
+
+        // Badge color
+        let badgeClass = 'bg-blue-500/10 text-blue-400 border border-blue-500/30';
+        if (m.worth_badge === 'Sangat Tinggi') {
+          badgeClass = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
+        } else if (m.worth_badge === 'Cukup') {
+          badgeClass = 'bg-amber-500/10 text-amber-400 border border-amber-500/30';
+        }
+
+        tr.innerHTML = `
+          <td class="py-3 px-4 font-medium text-white">
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-sm font-semibold">${m.name}</span>
+              ${m.mode === 'image_generation' ? '<span class="text-[10px] bg-fuchsia-500/20 text-fuchsia-300 px-1.5 py-0.5 rounded border border-fuchsia-500/30">Image</span>' : ''}
+            </div>
+            <div class="text-[11px] text-gray-500">Context: ${m.context} &middot; Platform Disc: ${m.discount_platform}%</div>
+          </td>
+          <td class="py-3 px-4">
+            <div class="flex flex-col gap-1 items-start">
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-800 text-gray-300">
+                ${m.provider}
+              </span>
+              <a href="${m.source.url}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-gray-500 hover:text-red-400 flex items-center gap-0.5 transition-colors">
+                <span>Sumber</span> <span>↗</span>
+              </a>
+            </div>
+          </td>
+          <td class="py-3 px-4 text-right font-mono font-medium text-white">
+            ${formatRupiah(m.in_octa)}
+          </td>
+          <td class="py-3 px-4 text-right font-mono font-medium text-white">
+            ${formatRupiah(m.out_octa)}
+          </td>
+          <td class="py-3 px-4 text-right font-mono text-xs text-gray-400">
+            ${formatRupiah(m.in_retail)}
+          </td>
+          <td class="py-3 px-4 text-right font-mono text-xs text-gray-400">
+            ${formatRupiah(m.out_retail)}
+          </td>
+          <td class="py-3 px-4 text-center">
+            <span class="font-mono text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">
+              -${m.avg_pct_save}%
+            </span>
+          </td>
+          <td class="py-3 px-4 text-center">
+            <div class="inline-flex flex-col items-center">
+              <span class="text-xs px-2 py-0.5 rounded-full font-medium ${badgeClass}">
+                ${m.worth_badge}
+              </span>
+              <span class="text-[10px] text-gray-500 mt-0.5 max-w-[140px] truncate" title="${m.worth_reason}">${m.worth_reason}</span>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById('tableCounter').innerText = `Menampilkan ${filtered.length} dari ${models.length} model AI`;
+    }
+
+    function setProvider(prov) {
+      currentProvider = prov;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-provider') === prov) {
+          btn.className = 'filter-btn active px-3 py-1.5 rounded-lg border border-red-500/40 bg-red-500/20 text-red-400 font-semibold whitespace-nowrap';
+        } else {
+          btn.className = 'filter-btn px-3 py-1.5 rounded-lg border border-gray-800 bg-gray-950 text-gray-400 hover:text-gray-200 whitespace-nowrap';
+        }
+      });
+      renderTable();
+    }
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderTable();
+    });
+
+    // Hotkey slash to focus search
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement !== document.getElementById('searchInput')) {
+        e.preventDefault();
+        document.getElementById('searchInput').focus();
+      }
+    });
+
+    renderTable();
+  </script>
+</body>
+</html>
