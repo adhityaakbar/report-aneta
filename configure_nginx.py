@@ -28,15 +28,27 @@ server {
 }
 """
 
-target = "/etc/nginx/conf.d/report.aneta.my.id.conf"
+# 1. Write to sites-available & enable
+available_target = "/etc/nginx/sites-available/report.aneta.my.id"
+enabled_target = "/etc/nginx/sites-enabled/report.aneta.my.id"
+
 try:
-    with open(target, "w", encoding="utf-8") as f:
+    with open(available_target, "w", encoding="utf-8") as f:
         f.write(nginx_conf)
-    print(f"[nginx] Written clean vhost config to {target}")
-    subprocess.run(["nginx", "-t"], check=False)
-    subprocess.run(["systemctl", "reload", "nginx"], check=False)
-    print("[nginx] Reloaded nginx successfully")
+    if not os.path.islink(enabled_target):
+        os.symlink(available_target, enabled_target)
+    print(f"[nginx] Configured {available_target} and symlinked to {enabled_target}")
 except Exception as e:
-    print(f"[nginx] Failed to configure: {e}")
+    print(f"[nginx] Error writing sites-available: {e}")
+
+# 2. Also write to conf.d just in case nginx.conf includes conf.d/*.conf
+conf_d_target = "/etc/nginx/conf.d/report.aneta.my.id.conf"
+try:
+    with open(conf_d_target, "w", encoding="utf-8") as f:
+        f.write(nginx_conf)
+    print(f"[nginx] Written {conf_d_target}")
+except Exception as e:
+    print(f"[nginx] Error writing conf.d: {e}")
+
 
 
