@@ -164,6 +164,7 @@ func call9Router(systemPrompt, userPrompt string) (string, error) {
 			{"role": "system", "content": systemPrompt},
 			{"role": "user", "content": userPrompt},
 		},
+		"stream":      false,
 		"temperature": 0.3,
 	}
 
