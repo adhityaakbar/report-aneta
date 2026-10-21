@@ -72,15 +72,6 @@ jobs:
               cp octa-telkomsel-model-comparison.html octa-telkomsel-model-comparison/index.html
             fi
 
-            # Auto-create directory routes for all generated html files
-            for h in *.html; do
-              s="\${h%.html}"
-              if [ "\$s" != "index" ] && [ ! -d "\$s" ]; then
-                mkdir -p "\$s"
-                cp "\$h" "\$s/index.html"
-              fi
-            done
-
             # Set web server ownership & permissions
             sudo chown -R www-data:www-data /var/www/report || true
             sudo chmod -R 755 /var/www/report
@@ -92,20 +83,6 @@ jobs:
               sudo systemctl enable aneta-research.service || true
               sudo systemctl restart aneta-research.service || true
             fi
-
-            # Ensure Nginx sites-available/default has location /api/ reverse proxy
-            sudo bash -c "
-              for f in /etc/nginx/sites-available/* /etc/nginx/conf.d/*; do
-                if [ -f \"\$f\" ] && grep -q \"report.aneta.my.id\" \"\$f\"; then
-                  if ! grep -q \"location /api\" \"\$f\"; then
-                    sed -i '/server_name/a \    location /api/ { proxy_pass http://127.0.0.1:8088; proxy_set_header Host \$host; proxy_read_timeout 300s; }' \"\$f\"
-                  fi
-                fi
-              done
-              if ! grep -q \"location /api\" /etc/nginx/sites-available/default 2>/dev/null; then
-                sed -i '/server_name/a \    location /api/ { proxy_pass http://127.0.0.1:8088; proxy_set_header Host \$host; proxy_read_timeout 300s; }' /etc/nginx/sites-available/default 2>/dev/null || true
-              fi
-            " || true
 
             # Reload Nginx service
             echo '==> Reloading Nginx...'
