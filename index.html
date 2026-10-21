@@ -124,7 +124,7 @@
       <!-- Card 3: Reports Count -->
       <div class="bg-white rounded-xl border border-black/[0.08] p-5">
         <div class="text-[11px] font-semibold text-[#757575] uppercase tracking-wider mb-1">Published Intel</div>
-        <div class="text-xl font-bold text-[#111111]">3 Report(s)</div>
+        <div class="text-xl font-bold text-[#111111]">4 Report(s)</div>
         <div class="text-xs text-[#615d59] mt-1">Verified Benchmarks</div>
       </div>
 
@@ -252,6 +252,39 @@
           </div>
         </article>
 		
+        <article class="report-card bg-white rounded-xl border border-black/[0.08] p-6 hover:border-black/20 transition-all flex flex-col justify-between"
+                 data-category="Hardware & Gadgets" 
+                 data-title="Google Hardware Lineup 2024: Visual Infographic Buyer's Guide">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#e6f3fe] text-[#0075de] border border-[#0075de]/20">
+                Hardware & Gadgets
+              </span>
+              <span class="text-xs font-mono text-[#757575]">2026-10-21</span>
+            </div>
+            <h2 class="text-lg font-bold text-[#111111] mb-2 leading-snug tracking-tight">
+              <a href="/analisis-hardware-google-2024" class="hover:text-[#0075de] transition-colors">Google Hardware Lineup 2024: Visual Infographic Buyer's Guide</a>
+            </h2>
+            <p class="text-xs text-[#615d59] leading-relaxed mb-4 line-clamp-3">
+              Panduan infografis visual pembelian ekosistem gawai Google 2024 (Pixel 9 Pro Fold, Watch 3, Buds Pro 2) lengkap dengan diagram visual gawai, skor kelayakan beli, dan komparasi kompetitor.
+            </p>
+          </div>
+          
+          <div class="pt-4 border-t border-black/[0.06] flex items-center justify-between text-xs">
+            <span class="text-[#757575] truncate max-w-[140px]">Aneta Research</span>
+            <div class="flex items-center gap-2">
+              <button onclick="openEnhanceModal('analisis-hardware-google-2024', 'Google Hardware Lineup 2024: Visual Infographic Buyer's Guide')" 
+                      class="px-2.5 py-1 rounded-lg bg-[#f6f5f4] hover:bg-[#e6f3fe] text-[#615d59] hover:text-[#0075de] font-medium transition flex items-center gap-1 border border-black/[0.06]">
+                <svg class="w-3.5 h-3.5 text-[#ffb110]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                <span>Enhance</span>
+              </button>
+              <a href="/analisis-hardware-google-2024" class="px-3 py-1 rounded-lg bg-[#0075de] hover:bg-[#0060b9] text-white font-medium transition shadow-sm">
+                Lihat Laporan
+              </a>
+            </div>
+          </div>
+        </article>
+		
     </div>
 
     <div id="noResults" class="hidden text-center py-12 bg-white rounded-xl border border-black/[0.08] mt-4">
@@ -367,7 +400,7 @@
   <script>
     let currentAuthKey = sessionStorage.getItem('aneta_research_key') || '';
     let currentMode = 'new';
-    const allReports = [{"slug":"analisis-tanaman-lahan-gambut-solusi-kebakaran-berkelanjutan","title":"Restorasi Ekosistem Gambut \u0026 Mitigasi Karhutla: Pendekatan Paludikultur 3R Berbasis IoT","date":"2026-10-21","category":"Lingkungan \u0026 Agrikultur","summary":"Panduan infografis komprehensif restorasi hidrologis lahan gambut tropis melalui pembasahan kembali (rewetting), komoditas paludikultur ramah air, dan sistem deteksi dini karhutla.","has_html":true,"url":"/analisis-tanaman-lahan-gambut-solusi-kebakaran-berkelanjutan"},{"slug":"octa-telkomsel-model-comparison","title":"OCTA Telkomsel AI Model Pricing \u0026 Benchmark Comparison","date":"2026-10-21","category":"AI Models","summary":"Analisis komparasi tarif 35 model AI di OCTA Telkomsel (1 Kredit = Rp 1) vs harga retail resmi OpenAI, Anthropic, Google, DeepSeek. Rata-rata penghematan 11.9% hingga 20% dibanding rate direct valas kartu kredit.","has_html":true,"url":"/octa-telkomsel-model-comparison"},{"slug":"solusi-realtime-translation-bahasa-jepang-kanji-sub-detik-mobile","title":"Solusi Realtime Translation Bahasa Jepang \u0026 Kanji Sub-1 Detik: NPU On-Device vs Dedicated Hardware","date":"2026-10-21","category":"AI Models","summary":"Analisis benchmark latensi sub-detik (\u003c1000ms) untuk translasi suara dan OCR Kanji Jepang menggunakan NPU edge (Snapdragon, Apple Silicon, Tensor) versus hardware dedicated seperti Timekettle dan Pocketalk.","has_html":true,"url":"/solusi-realtime-translation-bahasa-jepang-kanji-sub-detik-mobile"}];
+    const allReports = [{"slug":"analisis-tanaman-lahan-gambut-solusi-kebakaran-berkelanjutan","title":"Restorasi Ekosistem Gambut \u0026 Mitigasi Karhutla: Pendekatan Paludikultur 3R Berbasis IoT","date":"2026-10-21","category":"Lingkungan \u0026 Agrikultur","summary":"Panduan infografis komprehensif restorasi hidrologis lahan gambut tropis melalui pembasahan kembali (rewetting), komoditas paludikultur ramah air, dan sistem deteksi dini karhutla.","has_html":true,"url":"/analisis-tanaman-lahan-gambut-solusi-kebakaran-berkelanjutan"},{"slug":"octa-telkomsel-model-comparison","title":"OCTA Telkomsel AI Model Pricing \u0026 Benchmark Comparison","date":"2026-10-21","category":"AI Models","summary":"Analisis komparasi tarif 35 model AI di OCTA Telkomsel (1 Kredit = Rp 1) vs harga retail resmi OpenAI, Anthropic, Google, DeepSeek. Rata-rata penghematan 11.9% hingga 20% dibanding rate direct valas kartu kredit.","has_html":true,"url":"/octa-telkomsel-model-comparison"},{"slug":"solusi-realtime-translation-bahasa-jepang-kanji-sub-detik-mobile","title":"Solusi Realtime Translation Bahasa Jepang \u0026 Kanji Sub-1 Detik: NPU On-Device vs Dedicated Hardware","date":"2026-10-21","category":"AI Models","summary":"Analisis benchmark latensi sub-detik (\u003c1000ms) untuk translasi suara dan OCR Kanji Jepang menggunakan NPU edge (Snapdragon, Apple Silicon, Tensor) versus hardware dedicated seperti Timekettle dan Pocketalk.","has_html":true,"url":"/solusi-realtime-translation-bahasa-jepang-kanji-sub-detik-mobile"},{"slug":"analisis-hardware-google-2024","title":"Google Hardware Lineup 2024: Visual Infographic Buyer's Guide","date":"2026-10-21","category":"Hardware \u0026 Gadgets","summary":"Panduan infografis visual pembelian ekosistem gawai Google 2024 (Pixel 9 Pro Fold, Watch 3, Buds Pro 2) lengkap dengan diagram visual gawai, skor kelayakan beli, dan komparasi kompetitor.","has_html":true,"url":"/analisis-hardware-google-2024"}];
 
     function getEl(id) {
       return document.getElementById(id);
@@ -540,8 +573,8 @@
 
         // 2. Client-side fallback to 9router API if server API route is pending Nginx reload
         if (!result) {
-          const sysPrompt = "You are an elite Tech Research Analyst and Information Designer at Aneta Research. Produce comprehensive technology and multi-domain research formatted strictly as standalone, responsive, interactive HTML applications matching Notion DESIGN.MD: warm paper canvas (#f6f5f4), white cards (#ffffff) with 1px hairline border, Notion Blue (#0075de) buttons, Inter font. CRITICAL: 1. THEMATIC VISUALS: Include inline SVG illustrations and contextual icons matching the theme (e.g. peatland diagrams, water table gauges, neural diagrams, or cost charts). 2. INFOGRAPHIC LAYOUT: Build an easy-to-understand executive infographic dashboard with Visual Hero, Bento KPI metric cards with micro-progress/sparkline bars, an Infographic Explainer Diagram (process flow or visual breakdown), an interactive comparison matrix table, and actionable 3-column recommendation cards.";
-          const usrPrompt = "Topic: " + topic + "\\nMode: " + currentMode + "\\nGenerate JSON: {\\\"title\\\": \\\"...\\\", \\\"slug\\\": \\\"reseller-ai-token-local-9router\\\", \\\"category\\\": \\\"AI Models\\\", \\\"summary\\\": \\\"...\\\", \\\"tags\\\": [\\\"Reseller\\\", \\\"9router\\\"], \\\"html\\\": \\\"<!DOCTYPE html>...\\\"}\\nReturn STRICTLY valid JSON without backticks.";
+          const sysPrompt = "You are an elite Tech Research Analyst and Information Designer at Aneta Research. Produce comprehensive technology and multi-domain research formatted strictly as standalone, responsive, interactive HTML applications matching Notion DESIGN.MD: warm paper canvas (#f6f5f4), white cards (#ffffff) with 1px hairline border, Notion Blue (#0075de) buttons, Inter font. CRITICAL: 1. MANDATORY VISUALS & IMAGERY: Never produce text-only reports! Every major product, device, or concept card MUST have rich visual illustrations or inline SVG device graphics (e.g. Pixel foldable silhouettes, smartwatch watch-faces, earbud cases, camera visors, botanical cross-sections) and visual rating score bars. 2. INFOGRAPHIC DASHBOARD: Include Visual Hero, Bento KPI metric cards with progress meters/sparklines, an Infographic Explainer Diagram, visual comparison cards or matrix with row icons, and actionable 3-column recommendations.";
+          const usrPrompt = "Topic: " + topic + "\\nMode: " + currentMode + "\\nGenerate JSON: {\\\"title\\\": \\\"...\\\", \\\"slug\\\": \\\"...\\\", \\\"category\\\": \\\"...\\\", \\\"summary\\\": \\\"...\\\", \\\"tags\\\": [\\\"...\\\"], \\\"html\\\": \\\"<!DOCTYPE html>...\\\"}\\nReturn STRICTLY valid JSON without backticks.";
 
           const directRes = await fetch("https://9router.mytsel.id/v1/chat/completions", {
             method: "POST",

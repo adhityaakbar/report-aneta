@@ -80,11 +80,16 @@ Tactile analog warmth ("warm paper notebook under afternoon sun") coupled with h
 - **Pills & Badges:** `rounded-full` (9999px) with tight padding for tags and status indicators.
 
 ## 5. Thematic Infographics & UI/UX Pro Max Standard
-- **Thematic Visual Adaptation:** Each report dynamically adapts visual motifs, badges, and inline SVG illustrations to its subject (e.g., peatland cross-sections, canal block diagrams, water table gauges for environmental topics; network topologies, token throughput sparklines for tech topics).
+- **Thematic Visual Adaptation & Mandatory Imagery:**
+  - Reports MUST NOT be text-only lists or bullet points!
+  - Every major product, device, species, or concept card MUST feature visual artwork:
+    * **Hardware / Gadgets:** Device silhouettes, folding hinge graphics, camera visor schematics, watch dial SVGs, earbud case vectors.
+    * **Environment & Biology:** Layered soil cross-sections, canal block diagrams, root architectures, water level gauges.
+    * **Software & Systems:** Micro-topology maps, latency flow arrows, throughput charts.
+  - **Visual Score & Rating Meters:** Include rating progress bars (e.g. `Value Score: 8.8/10` with a filled progress bar) and status chips with brand/context icons.
 - **Infographic Dashboard Structure:**
   1. **Visual Hero:** Editorial lead with high-impact key takeaway and quick status meter.
   2. **Bento KPI Matrix:** Visual metric cards with bold numbers, percentage deltas, and progress bars/sparklines.
-  3. **Visual Concept Explainer:** An interactive or inline SVG schematic (process flow, 3R framework, before/after comparison).
-  4. **Comparison Matrix:** Clean table with inline contextual icons and color-coded status badges.
+  3. **Visual Concept Explainer:** An interactive or inline SVG schematic (process flow, 3R framework, hardware teardown).
+  4. **Visual Comparison Cards / Grid:** Each card features prominent visual artwork, pros/cons icon badges, and competitor chips.
   5. **Structured Action Items:** 3-column recommendation cards with priority badges.
-- **Micro-Interactions:** Smooth hover transitions (`150ms ease`), pill filter buttons, and instant search feedback without layout shift.

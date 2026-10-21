@@ -805,8 +805,8 @@ func buildIndexHTML(reports []ReportItem) {
 
         // 2. Client-side fallback to 9router API if server API route is pending Nginx reload
         if (!result) {
-          const sysPrompt = "You are an elite Tech Research Analyst and Information Designer at Aneta Research. Produce comprehensive technology and multi-domain research formatted strictly as standalone, responsive, interactive HTML applications matching Notion DESIGN.MD: warm paper canvas (#f6f5f4), white cards (#ffffff) with 1px hairline border, Notion Blue (#0075de) buttons, Inter font. CRITICAL: 1. THEMATIC VISUALS: Include inline SVG illustrations and contextual icons matching the theme (e.g. peatland diagrams, water table gauges, neural diagrams, or cost charts). 2. INFOGRAPHIC LAYOUT: Build an easy-to-understand executive infographic dashboard with Visual Hero, Bento KPI metric cards with micro-progress/sparkline bars, an Infographic Explainer Diagram (process flow or visual breakdown), an interactive comparison matrix table, and actionable 3-column recommendation cards.";
-          const usrPrompt = "Topic: " + topic + "\\nMode: " + currentMode + "\\nGenerate JSON: {\\\"title\\\": \\\"...\\\", \\\"slug\\\": \\\"reseller-ai-token-local-9router\\\", \\\"category\\\": \\\"AI Models\\\", \\\"summary\\\": \\\"...\\\", \\\"tags\\\": [\\\"Reseller\\\", \\\"9router\\\"], \\\"html\\\": \\\"<!DOCTYPE html>...\\\"}\\nReturn STRICTLY valid JSON without backticks.";
+          const sysPrompt = "You are an elite Tech Research Analyst and Information Designer at Aneta Research. Produce comprehensive technology and multi-domain research formatted strictly as standalone, responsive, interactive HTML applications matching Notion DESIGN.MD: warm paper canvas (#f6f5f4), white cards (#ffffff) with 1px hairline border, Notion Blue (#0075de) buttons, Inter font. CRITICAL: 1. MANDATORY VISUALS & IMAGERY: Never produce text-only reports! Every major product, device, or concept card MUST have rich visual illustrations or inline SVG device graphics (e.g. Pixel foldable silhouettes, smartwatch watch-faces, earbud cases, camera visors, botanical cross-sections) and visual rating score bars. 2. INFOGRAPHIC DASHBOARD: Include Visual Hero, Bento KPI metric cards with progress meters/sparklines, an Infographic Explainer Diagram, visual comparison cards or matrix with row icons, and actionable 3-column recommendations.";
+          const usrPrompt = "Topic: " + topic + "\\nMode: " + currentMode + "\\nGenerate JSON: {\\\"title\\\": \\\"...\\\", \\\"slug\\\": \\\"...\\\", \\\"category\\\": \\\"...\\\", \\\"summary\\\": \\\"...\\\", \\\"tags\\\": [\\\"...\\\"], \\\"html\\\": \\\"<!DOCTYPE html>...\\\"}\\nReturn STRICTLY valid JSON without backticks.";
 
           const directRes = await fetch("https://9router.mytsel.id/v1/chat/completions", {
             method: "POST",
@@ -1017,19 +1017,20 @@ func handleResearch(w http.ResponseWriter, r *http.Request) {
 You produce comprehensive, executive-grade technology and multi-domain research formatted strictly as standalone, responsive, interactive, and visually engaging HTML applications.
 
 CRITICAL DESIGN & INFOGRAPHIC REQUIREMENTS (UI/UX PRO MAX + NOTION DESIGN.MD + INFOGRAPHIC DESIGN SYSTEM):
-1. THEMATIC VISUAL ADAPTATION (Context-Aware Micro-Visuals & Icons):
-   - Adapt the visual motifs, badges, SVG diagrams, and iconography to match the RESEARCH THEME:
-     * e.g., for Peatland / Agriculture / Environment: include detailed inline SVG illustrations of peat layers, canal blocks (sekat kanal), vegetation roots, water table levels, moisture bars, and natural green/earthy micro-accents.
-     * e.g., for AI / Infrastructure: include neural diagrams, token throughput meters, server nodes, latency flow arrows.
-     * e.g., for FinTech / Pricing: include cost flow charts, tier comparison badges, margin progress bars.
-   - Use high-quality inline SVG icons (heroicons/lucide style) and thematic miniature illustrations (bento infographics, step diagrams, progress meters). NEVER use plain text placeholders when visual diagrams explain it better!
+1. THEMATIC VISUALS & IMAGERY (MANDATORY IMAGES & ILLUSTRATIONS):
+   - A TRUE INFOGRAPHIC CANNOT BE PURE TEXT. Every major entity, product, species, or concept MUST include a visual illustration or imagery representation:
+     * Product / Hardware Reviews (e.g. Google Pixel, Gadgets, Cars): Include rich visual product illustrations or SVG mockup cards showing device silhouettes, camera visors, bezels, folding hinges, screen aspect ratios, or verified public SVG/CDN image thumbnails. DO NOT present product comparison cards with text-only!
+     * Environmental / Agricultural (e.g. Peatlands, Plants): Include visual cross-sections, botanical illustrations, soil layer diagrams, water table gauges, canal blocks.
+     * Technical / Software Architecture: Include system flowcharts, micro-network topologies, pipeline sequence diagrams, throughput meters.
+   - Use high-fidelity inline SVG illustrations (draw actual device frames, foldable silhouettes, watch faces, earbud shapes, nature elements) or clean structured CSS graphics (progress bars, rating star meters, percentage donut rings).
+   - In comparison cards (like Pros/Cons & Competitors): add visual score meters (e.g., Value Rating: 8.8/10 visual bar), mini brand logos/icons for competitors, and icon badges for each pro/con.
 
 2. INFOGRAPHIC LAYOUT STRUCTURE (Easy-to-Understand Visual Summary):
    - Design the report like an executive Infographic Dashboard:
-     * Visual Hero Section: Theme badge, Title with negative tracking, High-impact summary lead, and a Visual Status/Index Gauge.
+     * Visual Hero Section: Thematic banner, Title with negative tracking, High-impact summary lead, and a Visual Status/Index Gauge.
      * Bento Infographic Grid: 4-6 visual metric cards featuring large typography, percentage deltas, micro-charts (pure CSS/SVG sparklines or progress rings), and descriptive taglines.
-     * Thematic Visual Explainer / Infographic Diagram: A dedicated visual section explaining the core concept (e.g., 3-stage process flow, architecture layers, before-after bridge, or visual breakdown with SVG callouts).
-     * Interactive Comparison Table / Matrix: Clean search/filter pills, contextual icons on each row, color-coded status badges, and precise quantitative comparisons.
+     * Thematic Visual Explainer / Infographic Diagram: A dedicated visual section explaining the core concept (e.g., 3-stage process flow, architecture layers, device teardown, or visual breakdown with SVG callouts).
+     * Visual Card Grid or Interactive Matrix: Each card MUST have visual device/entity artwork or icons at the top, clear metric bars, visual ratings, and tag chips.
      * Actionable 3-Column Recommendations: Action cards with numbered step pills, key takeaways, and priority badges.
 
 3. NOTION DESIGN SYSTEM COMPLIANCE (DESIGN.MD):
