@@ -77,9 +77,10 @@ jobs:
             sudo chown -R www-data:www-data /var/www/report || true
             sudo chmod -R 755 /var/www/report
 
-            # Restart systemd service cleanly: kill any old process on port 8088 first
-            sudo fuser -k 8088/tcp 2>/dev/null || true
-            sudo pkill -f aneta-api 2>/dev/null || true
+            # Stop old process and service safely
+            sudo systemctl stop aneta-research.service 2>/dev/null || true
+            sudo kill -9 $(sudo lsof -t -i:8088) 2>/dev/null || true
+
             if [ -f aneta-research.service ]; then
               sudo cp aneta-research.service /etc/systemd/system/
               sudo chmod 644 /etc/systemd/system/aneta-research.service
