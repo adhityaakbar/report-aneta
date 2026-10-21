@@ -718,26 +718,27 @@ func buildIndexHTML(reports []ReportItem) {
     }
 
     async function handleSendResearch(e) {
-      e.preventDefault();
-      const topic = chatInput.value.trim();
+      if (e && e.preventDefault) e.preventDefault();
+      const topicInput = document.getElementById('chatInput');
+      const topic = topicInput.value.trim();
       if (!topic) return;
 
       const userBox = document.createElement('div');
       userBox.className = "bg-[#e6f3fe] border border-[#0075de]/20 rounded-xl p-3 text-xs text-[#111111] ml-6";
       userBox.innerHTML = '<div class="font-bold text-[#0075de] mb-1">Topik Riset [' + currentMode.toUpperCase() + ']:</div><div>' + topic + '</div>';
       chatMessages.appendChild(userBox);
-      chatInput.value = '';
+      topicInput.value = '';
 
       const agentBox = document.createElement('div');
       agentBox.className = "bg-white border border-black/[0.08] rounded-xl p-4 text-xs text-[#615d59] shadow-sm";
       agentBox.innerHTML = 
         '<div class="font-bold text-[#111111] mb-1 flex items-center gap-1.5">' +
           '<span class="w-2 h-2 rounded-full bg-[#0075de] animate-ping"></span>' +
-          '<span>Menjalankan Autonomous Deep Research Pipeline (9router LLM)...</span>' +
+          '<span>Menjalankan Autonomous Deep Research Pipeline (Go Backend)...</span>' +
         '</div>' +
         '<p class="text-[11px] font-mono text-[#757575] mt-1">' +
           '&bull; Model: 9router 9combos-agy<br>' +
-          '&bull; Synthesis: Perplexity Pro Research Style<br>' +
+          '&bull; Search: Lightpanda MCP Browser Search<br>' +
           '&bull; Output: Standalone Notion DESIGN.md HTML' +
         '</p>';
       chatMessages.appendChild(agentBox);
@@ -748,83 +749,54 @@ func buildIndexHTML(reports []ReportItem) {
       submitBtn.classList.add('opacity-50');
 
       try {
-        const sysPrompt = "You are an elite Tech Research Analyst. Produce comprehensive technology benchmarks formatted strictly as standalone, responsive, interactive HTML applications matching Notion DESIGN.MD: warm paper canvas (#f6f5f4), white cards (#ffffff) with 1px hairline border, Notion Blue (#0075de) buttons, Inter font.";
-        const usrPrompt = "Topic: " + topic + "\nMode: " + currentMode + "\nTarget Slug: " + (currentMode === "enhance" ? targetResearchSelect.value : "") + "\n\nGenerate JSON: {\"title\": \"...\", \"slug\": \"...\", \"category\": \"AI Models\", \"summary\": \"...\", \"tags\": [\"...\"], \"html\": \"<!DOCTYPE html><html>...</html>\"}\nOutput STRICTLY valid JSON without backticks.";
+        const payload = {
+          topic: topic,
+          mode: currentMode,
+          existing_slug: currentMode === 'enhance' ? targetResearchSelect.value : '',
+          secret_key: currentAuthKey
+        };
 
-        let result = null;
+        const res = await fetch('/api/research', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Secret-Key': currentAuthKey
+          },
+          body: JSON.stringify(payload)
+        });
 
-        // 1. Try server endpoint first
-        try {
-          const res = await fetch("/api/research", {
-            method: "POST",
-            headers: { "Content-Type": "application/json", "X-Secret-Key": currentAuthKey },
-            body: JSON.stringify({ topic: topic, mode: currentMode, existing_slug: targetResearchSelect.value, secret_key: currentAuthKey })
-          });
-          if (res.ok) {
-            const data = await res.json();
-            if (data.success && data.result) result = data.result;
-          }
-        } catch (_) {}
-
-        // 2. Direct 9router fallback if /api/ is not reachable
-        if (!result) {
-          const llmRes = await fetch("https://9router.mytsel.id/v1/chat/completions", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization": "Bearer sk-088ecd7360b12ce3-18ymc8-86634ab0"
-            },
-            body: JSON.stringify({
-              model: "9combos-agy",
-              messages: [
-                { role: "system", content: sysPrompt },
-                { role: "user", content: usrPrompt }
-              ],
-              stream: false,
-              temperature: 0.3
-            })
-          });
-
-          if (!llmRes.ok) {
-            throw new Error("9router HTTP " + llmRes.status + ": " + llmRes.statusText);
-          }
-
-          const llmData = await llmRes.json();
-          let rawContent = llmData.choices[0].message.content.trim();
-          if (rawContent.indexOf(String.fromCharCode(96,96,96)) === 0) {
-            const lines = rawContent.split(String.fromCharCode(10));
-            rawContent = lines.slice(1, lines.length - 1).join(String.fromCharCode(10)).trim();
-          }
-          const parsed = JSON.parse(rawContent);
-          result = {
-            slug: parsed.slug || "research-result",
-            title: parsed.title,
-            category: parsed.category || "AI Models",
-            summary: parsed.summary,
-            url: "data:text/html;charset=utf-8," + encodeURIComponent(parsed.html),
-            html: parsed.html
-          };
+        if (!res.ok) {
+          const errText = await res.text();
+          throw new Error('Server HTTP ' + res.status + ': ' + (errText.substring(0, 100) || res.statusText));
         }
 
-        if (result) {
+        const data = await res.json();
+        if (data.success && data.result) {
           agentBox.innerHTML = 
-            "<div class=\"font-bold text-[#10b981] mb-1 flex items-center gap-1.5\">" +
-              "<svg class=\"w-4 h-4 text-[#10b981]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\"/></svg>" +
-              "<span>Riset Berhasil Selesai & Diterbitkan!</span>" +
-            "</div>" +
-            "<h4 class=\"font-bold text-sm text-[#111111] mt-2\">" + result.title + "</h4>" +
-            "<p class=\"text-xs text-[#615d59] mt-1\">" + result.summary + "</p>" +
-            "<div class=\"mt-3 flex items-center gap-2\">" +
-              "<a href=\"" + result.url + "\" target=\"_blank\" class=\"px-3 py-1.5 rounded-lg bg-[#0075de] hover:bg-[#0060b9] text-white text-xs font-medium inline-flex items-center gap-1 shadow-sm\">" +
-                "<span>Buka Hasil Riset Lengkap</span>" +
-                "<svg class=\"w-3.5 h-3.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14\"/></svg>" +
-              "</a>" +
-            "</div>";
+            '<div class="font-bold text-[#10b981] mb-1 flex items-center gap-1.5">' +
+              '<svg class="w-4 h-4 text-[#10b981]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>' +
+              '<span>Riset Berhasil Selesai & Diterbitkan!</span>' +
+            '</div>' +
+            '<h4 class="font-bold text-sm text-[#111111] mt-2">' + data.result.title + '</h4>' +
+            '<p class="text-xs text-[#615d59] mt-1">' + data.result.summary + '</p>' +
+            '<div class="mt-3 flex items-center gap-2">' +
+              '<a href="' + data.result.url + '" target="_blank" class="px-3 py-1.5 rounded-lg bg-[#0075de] hover:bg-[#0060b9] text-white text-xs font-medium inline-flex items-center gap-1 shadow-sm">' +
+                '<span>Buka Hasil Riset Lengkap</span>' +
+                '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>' +
+              '</a>' +
+              '<button onclick="window.location.reload()" class="px-3 py-1.5 rounded-lg bg-[#f6f5f4] hover:bg-black/5 text-[#111111] text-xs font-medium border border-black/[0.08]">' +
+                'Refresh Beranda' +
+              '</button>' +
+            '</div>';
+        } else {
+          agentBox.innerHTML = 
+            '<div class="font-bold text-[#f64932] mb-1">Riset Gagal</div>' +
+            '<p class="text-xs text-[#615d59]">' + (data.error || 'Terjadi kesalahan.') + '</p>';
         }
       } catch (err) {
         agentBox.innerHTML = 
-          "<div class=\"font-bold text-[#f64932] mb-1\">Riset Gagal</div>" +
-          "<p class=\"text-xs text-[#615d59]\">" + err.message + "</p>";
+          '<div class="font-bold text-[#f64932] mb-1">Koneksi Error</div>' +
+          '<p class="text-xs text-[#615d59]">' + err.message + '</p>';
       } finally {
         submitBtn.disabled = false;
         submitBtn.classList.remove('opacity-50');

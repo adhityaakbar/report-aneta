@@ -88,14 +88,6 @@ jobs:
             if [ -f configure_nginx.py ]; then
               sudo python3 configure_nginx.py || true
             fi
-
-            # Reload Nginx service
-            echo '==> Reloading Nginx...'
-            if command -v systemctl >/dev/null 2>&1; then
-              sudo systemctl reload nginx || sudo service nginx reload
-            else
-              sudo nginx -s reload
-            fi
             echo '==> Deployment to report.aneta.my.id successfully completed!'
           "
 
