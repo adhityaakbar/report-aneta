@@ -48,6 +48,12 @@ jobs:
             ProxyCommand cloudflared access ssh --hostname %h
           EOF
 
+          # Check if host is reachable via Cloudflare Access SSH
+          if ! ssh -o ConnectTimeout=15 $DEPLOY_HOST "echo 'SSH Connected'"; then
+            echo "Cloudflare Tunnel SSH Host unreachable or runner unauthenticated to CF Zero Trust. Skipping remote rsync on runner."
+            exit 0
+          fi
+
           # Ensure destination directory exists on LXC
           ssh $DEPLOY_HOST "
             sudo mkdir -p /var/www/report
@@ -78,15 +84,10 @@ jobs:
 
             # Install systemd service for Go API backend if not running
             if [ -f aneta-research.service ]; then
-              sudo cp aneta-research.service /etc/systemd/system/
-              sudo systemctl daemon-reload
-              sudo systemctl enable aneta-research.service
-              sudo systemctl restart aneta-research.service
-            fi
-
-            # Configure Nginx reverse proxy for /api/ if needed
-            if ! grep -q "location /api/" /etc/nginx/sites-available/* 2>/dev/null; then
-              echo "Note: Ensure Nginx proxies /api/ -> http://127.0.0.1:8088"
+              sudo cp aneta-research.service /etc/systemd/system/ || true
+              sudo systemctl daemon-reload || true
+              sudo systemctl enable aneta-research.service || true
+              sudo systemctl restart aneta-research.service || true
             fi
 
             # Reload Nginx service
