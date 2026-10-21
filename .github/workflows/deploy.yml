@@ -94,9 +94,9 @@ jobs:
             sudo sed -i '/proxy_pass http:\/\/127.0.0.1:8088/d' /etc/nginx/sites-available/default 2>/dev/null || true
             sudo sed -i '/server_name/a \    location /api/ { proxy_pass http://127.0.0.1:8088; proxy_set_header Host $host; proxy_read_timeout 300s; }' /etc/nginx/sites-available/default || true
 
-            # Print and debug nginx configuration
-            sudo nginx -T 2>&1 | grep -A 5 -B 5 "report.aneta" || true
-            sudo nginx -T 2>&1 | grep -A 5 "location /api" || true
+            # Debug aneta-api failure
+            sudo journalctl -u aneta-research.service -n 20 --no-pager || true
+            /var/www/report/aneta-api build || true
             echo '==> Deployment to report.aneta.my.id successfully completed!'
           "
 
