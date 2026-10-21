@@ -49,6 +49,8 @@ try:
     with open(conf_d_target, "w", encoding="utf-8") as f:
         f.write(nginx_conf)
     print(f"[nginx] Written {conf_d_target}")
+    subprocess.run(["nginx", "-t"], check=False)
+    subprocess.run(["systemctl", "reload", "nginx"], check=False)
 except Exception as e:
     print(f"[nginx] Error writing conf.d: {e}")
 

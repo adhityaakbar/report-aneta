@@ -726,13 +726,14 @@ func buildIndexHTML(reports []ReportItem) {
     async function handleSendResearch(e) {
       if (e && e.preventDefault) e.preventDefault();
       const topicInput = document.getElementById('chatInput');
-      const topic = topicInput.value.trim();
-      if (!topic) return;
+      const messagesContainer = document.getElementById('chatMessages');
+      const topic = topicInput ? topicInput.value.trim() : '';
+      if (!topic || !messagesContainer) return;
 
       const userBox = document.createElement('div');
       userBox.className = "bg-[#e6f3fe] border border-[#0075de]/20 rounded-xl p-3 text-xs text-[#111111] ml-6";
       userBox.innerHTML = '<div class="font-bold text-[#0075de] mb-1">Topik Riset [' + currentMode.toUpperCase() + ']:</div><div>' + topic + '</div>';
-      chatMessages.appendChild(userBox);
+      messagesContainer.appendChild(userBox);
       topicInput.value = '';
 
       const agentBox = document.createElement('div');
@@ -747,8 +748,8 @@ func buildIndexHTML(reports []ReportItem) {
           '&bull; Synthesis: Perplexity Pro Research Style<br>' +
           '&bull; Output: Standalone Notion DESIGN.md HTML' +
         '</p>';
-      chatMessages.appendChild(agentBox);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
+      messagesContainer.appendChild(agentBox);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
       const submitBtn = document.getElementById('submitResearchBtn');
       submitBtn.disabled = true;
@@ -788,54 +789,28 @@ func buildIndexHTML(reports []ReportItem) {
           const sysPrompt = "You are an elite Tech Research Analyst at Aneta Research. Produce comprehensive technology benchmarks formatted strictly as standalone, responsive, interactive HTML applications matching Notion DESIGN.MD: warm paper canvas (#f6f5f4), white cards (#ffffff) with 1px hairline border, Notion Blue (#0075de) buttons, Inter font. Include Header, Title, 4 Metric KPI Cards, Search filter, Structured Table, and 3-column Recommendations.";
           const usrPrompt = "Topic: " + topic + "\\nMode: " + currentMode + "\\nGenerate JSON: {\\\"title\\\": \\\"...\\\", \\\"slug\\\": \\\"reseller-ai-token-local-9router\\\", \\\"category\\\": \\\"AI Models\\\", \\\"summary\\\": \\\"...\\\", \\\"tags\\\": [\\\"Reseller\\\", \\\"9router\\\"], \\\"html\\\": \\\"<!DOCTYPE html>...\\\"}\\nReturn STRICTLY valid JSON without backticks.";
 
-          const llmRes = await fetch("https://wago.mytsel.id/webhook", {
+          const directRes = await fetch("https://9router.mytsel.id/v1/chat/completions", {
             method: "POST",
             headers: {
-              "Content-Type": "application/json"
+              "Content-Type": "application/json",
+              "Authorization": "Bearer sk-088ecd7360b12ce3-18ymc8-86634ab0"
             },
             body: JSON.stringify({
-              url: "https://9router.mytsel.id/v1/chat/completions",
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer sk-088ecd7360b12ce3-18ymc8-86634ab0"
-              },
-              data: {
-                model: "9combos-agy",
-                messages: [
-                  { role: "system", content: sysPrompt },
-                  { role: "user", content: usrPrompt }
-                ],
-                stream: false,
-                temperature: 0.3
-              }
+              model: "9combos-agy",
+              messages: [
+                { role: "system", content: sysPrompt },
+                { role: "user", content: usrPrompt }
+              ],
+              stream: false,
+              temperature: 0.3
             })
-          }).catch(() => null);
+          });
 
-          let llmData = null;
-          if (llmRes && llmRes.ok) {
-            llmData = await llmRes.json();
-          } else {
-            // direct fetch
-            const directRes = await fetch("https://9router.mytsel.id/v1/chat/completions", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer sk-088ecd7360b12ce3-18ymc8-86634ab0"
-              },
-              body: JSON.stringify({
-                model: "9combos-agy",
-                messages: [
-                  { role: "system", content: sysPrompt },
-                  { role: "user", content: usrPrompt }
-                ],
-                stream: false,
-                temperature: 0.3
-              })
-            });
-            llmData = await directRes.json();
+          if (!directRes.ok) {
+            throw new Error("9router HTTP " + directRes.status + ": " + directRes.statusText);
           }
 
+          const llmData = await directRes.json();
           let rawContent = llmData.choices[0].message.content.trim();
           if (rawContent.indexOf(String.fromCharCode(96,96,96)) === 0) {
             const lines = rawContent.split(String.fromCharCode(10));
@@ -881,9 +856,13 @@ func buildIndexHTML(reports []ReportItem) {
           '<div class="font-bold text-[#f64932] mb-1">Koneksi Error</div>' +
           '<p class="text-xs text-[#615d59]">' + err.message + '</p>';
       } finally {
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('opacity-50');
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('opacity-50');
+        }
+        if (messagesContainer) {
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
       }
     }
 
