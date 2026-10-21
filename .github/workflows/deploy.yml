@@ -13,14 +13,16 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Setup Go
+        uses: actions/setup-go@v5
         with:
-          python-version: '3.11'
+          go-version: '1.24'
 
-      - name: Run Static Site Generator
+      - name: Build Go Binary & Run Static Site Generator
         run: |
-          python3 build.py
+          go mod tidy
+          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o aneta-api main.go
+          go run main.go build
 
       - name: Install Cloudflared on Runner
         run: |
@@ -73,6 +75,19 @@ jobs:
             # Set web server ownership & permissions
             sudo chown -R www-data:www-data /var/www/report || true
             sudo chmod -R 755 /var/www/report
+
+            # Install systemd service for Go API backend if not running
+            if [ -f aneta-research.service ]; then
+              sudo cp aneta-research.service /etc/systemd/system/
+              sudo systemctl daemon-reload
+              sudo systemctl enable aneta-research.service
+              sudo systemctl restart aneta-research.service
+            fi
+
+            # Configure Nginx reverse proxy for /api/ if needed
+            if ! grep -q "location /api/" /etc/nginx/sites-available/* 2>/dev/null; then
+              echo "Note: Ensure Nginx proxies /api/ -> http://127.0.0.1:8088"
+            fi
 
             # Reload Nginx service
             echo '==> Reloading Nginx...'
