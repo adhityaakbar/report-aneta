@@ -92,12 +92,7 @@ jobs:
               sudo systemctl status aneta-research.service --no-pager || true
             fi
 
-            # Clean duplicate report.aneta.my.id configs in sites-enabled / conf.d
-            sudo rm -f /etc/nginx/sites-enabled/default 2>/dev/null || true
-            sudo rm -f /etc/nginx/conf.d/report.aneta.my.id.conf 2>/dev/null || true
-            sudo rm -f /etc/nginx/conf.d/aneta-api-proxy.conf 2>/dev/null || true
-
-            # Configure Nginx reverse proxy for /api/
+            # Clean and reconfigure Nginx cleanly via configure_nginx.py
             if [ -f configure_nginx.py ]; then
               sudo python3 configure_nginx.py
             fi

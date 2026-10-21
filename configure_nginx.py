@@ -2,58 +2,49 @@
 import os
 import subprocess
 
-nginx_conf = """# Managed by Aneta Reports Deploy Workflow
-server {
-    listen 80;
-    server_name report.aneta.my.id;
+nginx_conf = """server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
 
     root /var/www/report;
     index index.html;
+    server_name _;
 
-    # Go API Backend Reverse Proxy
     location /api/ {
         proxy_pass http://127.0.0.1:8088;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
         proxy_read_timeout 300s;
         proxy_connect_timeout 300s;
     }
 
-    # Static Routes
     location / {
         try_files $uri $uri/ $uri.html /index.html;
     }
 }
 """
 
-# 1. Write to sites-available & enable
-available_target = "/etc/nginx/sites-available/report.aneta.my.id"
-enabled_target = "/etc/nginx/sites-enabled/report.aneta.my.id"
+# Clean any conflicting configs
+for c in ["/etc/nginx/conf.d/report.aneta.my.id.conf", "/etc/nginx/conf.d/aneta-api-proxy.conf", "/etc/nginx/sites-available/report.aneta.my.id", "/etc/nginx/sites-enabled/report.aneta.my.id"]:
+    try:
+        if os.path.islink(c) or os.path.exists(c):
+            os.remove(c)
+    except Exception:
+        pass
+
+# Write clean default
+default_target = "/etc/nginx/sites-available/default"
+enabled_target = "/etc/nginx/sites-enabled/default"
 
 try:
-    with open(available_target, "w", encoding="utf-8") as f:
+    with open(default_target, "w", encoding="utf-8") as f:
         f.write(nginx_conf)
-    if os.path.islink(enabled_target) or os.path.exists(enabled_target):
-        os.remove(enabled_target)
-    os.symlink(available_target, enabled_target)
-    print(f"[nginx] Configured {available_target} and symlinked to {enabled_target}")
-    subprocess.run(["nginx", "-t"], check=False)
-    subprocess.run(["systemctl", "reload", "nginx"], check=False)
+    if not os.path.exists(enabled_target):
+        os.symlink(default_target, enabled_target)
+    print("[nginx] Successfully configured /etc/nginx/sites-available/default")
+    subprocess.run(["nginx", "-t"], check=True)
+    subprocess.run(["systemctl", "restart", "nginx"], check=False)
+    print("[nginx] Nginx restarted successfully!")
 except Exception as e:
-    print(f"[nginx] Error writing sites-available: {e}")
-
-# 2. Also write to conf.d just in case nginx.conf includes conf.d/*.conf
-conf_d_target = "/etc/nginx/conf.d/report.aneta.my.id.conf"
-try:
-    with open(conf_d_target, "w", encoding="utf-8") as f:
-        f.write(nginx_conf)
-    print(f"[nginx] Written {conf_d_target}")
-    subprocess.run(["nginx", "-t"], check=False)
-    subprocess.run(["systemctl", "reload", "nginx"], check=False)
-except Exception as e:
-    print(f"[nginx] Error writing conf.d: {e}")
-
-
-
+    print(f"[nginx] Error: {e}")
