@@ -48,12 +48,6 @@ jobs:
             ProxyCommand cloudflared access ssh --hostname %h
           EOF
 
-          # Check if host is reachable via Cloudflare Access SSH
-          if ! ssh -o ConnectTimeout=15 $DEPLOY_HOST "echo 'SSH Connected'"; then
-            echo "Cloudflare Tunnel SSH Host unreachable or runner unauthenticated to CF Zero Trust. Skipping remote rsync on runner."
-            exit 0
-          fi
-
           # Ensure destination directory exists on LXC
           ssh $DEPLOY_HOST "
             sudo mkdir -p /var/www/report
@@ -78,6 +72,15 @@ jobs:
               cp octa-telkomsel-model-comparison.html octa-telkomsel-model-comparison/index.html
             fi
 
+            # Auto-create directory routes for all generated html files
+            for h in *.html; do
+              s="\${h%.html}"
+              if [ "\$s" != "index" ] && [ ! -d "\$s" ]; then
+                mkdir -p "\$s"
+                cp "\$h" "\$s/index.html"
+              fi
+            done
+
             # Set web server ownership & permissions
             sudo chown -R www-data:www-data /var/www/report || true
             sudo chmod -R 755 /var/www/report
@@ -88,6 +91,11 @@ jobs:
               sudo systemctl daemon-reload || true
               sudo systemctl enable aneta-research.service || true
               sudo systemctl restart aneta-research.service || true
+            fi
+
+            # Configure Nginx reverse proxy for /api/ to Go backend port 8088
+            if ! grep -q "location /api/" /etc/nginx/sites-available/* 2>/dev/null; then
+              sudo sed -i '/server_name/a \    location /api/ { proxy_pass http://127.0.0.1:8088; proxy_set_header Host \$host; proxy_read_timeout 300s; }' /etc/nginx/sites-available/default || true
             fi
 
             # Reload Nginx service

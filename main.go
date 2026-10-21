@@ -764,6 +764,11 @@ func buildIndexHTML(reports []ReportItem) {
           body: JSON.stringify(payload)
         });
 
+        if (!res.ok) {
+          const errText = await res.text();
+          throw new Error('Server returned HTTP ' + res.status + ': ' + (errText.substring(0, 120) || res.statusText));
+        }
+
         const data = await res.json();
         if (data.success && data.result) {
           agentBox.innerHTML = 
