@@ -87,7 +87,6 @@ jobs:
             # Configure Nginx reverse proxy for /api/
             if [ -f configure_nginx.py ]; then
               sudo python3 configure_nginx.py
-              sudo nginx -t && (sudo systemctl reload nginx || sudo service nginx reload)
             fi
             echo '==> Deployment to report.aneta.my.id successfully completed!'
           "

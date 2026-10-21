@@ -634,18 +634,24 @@ func buildIndexHTML(reports []ReportItem) {
     let currentMode = 'new';
     const allReports = %s;
 
-    const authModal = document.getElementById('authModal');
-    const chatDrawer = document.getElementById('chatDrawer');
-    const secretInput = document.getElementById('secretInput');
-    const authError = document.getElementById('authError');
-    const modeNewBtn = document.getElementById('modeNewBtn');
-    const modeEnhanceBtn = document.getElementById('modeEnhanceBtn');
-    const enhanceSelectContainer = document.getElementById('enhanceSelectContainer');
-    const targetResearchSelect = document.getElementById('targetResearchSelect');
-    const chatMessages = document.getElementById('chatMessages');
-    const chatInput = document.getElementById('chatInput');
-    const searchInput = document.getElementById('searchInput');
-    const noResults = document.getElementById('noResults');
+    let authModal, chatDrawer, secretInput, authError, modeNewBtn, modeEnhanceBtn;
+    let enhanceSelectContainer, targetResearchSelect, chatMessages, chatInput, searchInput, noResults;
+
+    function initDOMElements() {
+      authModal = document.getElementById('authModal');
+      chatDrawer = document.getElementById('chatDrawer');
+      secretInput = document.getElementById('secretInput');
+      authError = document.getElementById('authError');
+      modeNewBtn = document.getElementById('modeNewBtn');
+      modeEnhanceBtn = document.getElementById('modeEnhanceBtn');
+      enhanceSelectContainer = document.getElementById('enhanceSelectContainer');
+      targetResearchSelect = document.getElementById('targetResearchSelect');
+      chatMessages = document.getElementById('chatMessages');
+      chatInput = document.getElementById('chatInput');
+      searchInput = document.getElementById('searchInput');
+      noResults = document.getElementById('noResults');
+    }
+    initDOMElements();
 
     function populateDropdown() {
       targetResearchSelect.innerHTML = allReports.map(r => 
