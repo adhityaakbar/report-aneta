@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infografis Restorasi Lahan Gambut & Mitigasi Karhutla — Aneta Research</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', 'system-ui', 'sans-serif'],
+            serif: ['"Source Serif 4"', 'serif'],
+            mono: ['"Fira Code"', 'monospace'],
+          },
+          colors: {
+            notion: {
+              blue: '#0075de',
+              canvas: '#f6f5f4',
+              white: '#ffffff',
+              ink: '#111111',
+              graphite: '#615d59',
+              stone: '#757575',
+              peat: '#2D3B2D',
+              moss: '#10B981',
+              earth: '#8B5A2B',
+              alert: '#EF4444'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #f6f5f4;
+      color: #111111;
+    }
+    .hero-heading { letter-spacing: -0.035em; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f6f5f4; }
+    ::-webkit-scrollbar-thumb { background: #DADCE0; border-radius: 3px; }
+  </style>
+</head>
+<body class="min-h-screen antialiased flex flex-col bg-[#f6f5f4] text-[#111111]">
+
+  <!-- Top Sticky Header -->
+  <header class="border-b border-black/[0.08] bg-[#f6f5f4]/90 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-[#047857] text-white flex items-center justify-center font-bold text-lg shadow-sm">
+            🌿
+          </div>
+          <div class="flex items-baseline gap-1.5">
+            <span class="font-bold text-lg tracking-tight text-[#111111]">Aneta</span>
+            <span class="font-medium text-sm text-[#757575]">Research &bull; EcoInfographics</span>
+          </div>
+        </a>
+        <span class="hidden sm:inline-flex text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 ml-2">
+          Tropical Peatland &bull; 3R Framework
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2 text-xs">
+        <span class="text-[#757575] font-mono text-[11px]">PP No. 57/2016 Compliant</span>
+        <a href="/" class="px-3 py-1.5 rounded-lg bg-[#0075de] hover:bg-[#0060b9] text-white font-medium transition shadow-sm">
+          &larr; Dashboard
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-1">
+    
+    <!-- Editorial Headline Section with Peat Infographic Badge -->
+    <div class="mb-8">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+          🌱 INFOGRAFIS TEMATIK LINGKUNGAN
+        </span>
+        <span class="text-xs text-[#757575]">•</span>
+        <span class="text-xs font-mono text-[#757575]">Updated: 2026-10-21</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#111111] hero-heading mb-3">
+        Restorasi Ekosistem Gambut & Mitigasi Karhutla: Pendekatan Paludikultur 3R Berbasis IoT
+      </h1>
+      <p class="text-sm sm:text-base text-[#615d59] font-serif max-w-4xl leading-relaxed">
+        Panduan infografis komprehensif restorasi hidrologis lahan gambut tropis Indonesia melalui pembasahan kembali (rewetting), komoditas tanaman ramah air bernilai ekonomi tinggi, dan sistem deteksi dini titik panas bertenaga sensor telemetri.
+      </p>
+    </div>
+
+    <!-- BENTO INFOGRAPHIC KPI GRID -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      
+      <!-- KPI 1 -->
+      <div class="bg-white rounded-xl border border-black/[0.08] p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[11px] font-semibold text-[#757575] uppercase tracking-wider">Water Table Kritis</span>
+          <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+        </div>
+        <div class="text-3xl font-extrabold text-[#111111] mb-1">
+          -0.4 m
+        </div>
+        <div class="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden mb-2">
+          <div class="bg-red-500 h-full w-[40%]"></div>
+        </div>
+        <div class="text-[11px] text-[#615d59]">
+          Batas muka air tanah PP 57/2016; &lt;40cm rawan karhutla.
+        </div>
+      </div>
+
+      <!-- KPI 2 -->
+      <div class="bg-white rounded-xl border border-black/[0.08] p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[11px] font-semibold text-[#757575] uppercase tracking-wider">Deposit Karbon</span>
+          <span class="text-xs">🌍</span>
+        </div>
+        <div class="text-3xl font-extrabold text-emerald-700 mb-1">
+          57 Gt
+        </div>
+        <div class="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden mb-2">
+          <div class="bg-emerald-600 h-full w-[85%]"></div>
+        </div>
+        <div class="text-[11px] text-[#615d59]">
+          Cadangan karbon organik tersimpan di kubah gambut nasional.
+        </div>
+      </div>
+
+      <!-- KPI 3 -->
+      <div class="bg-white rounded-xl border border-black/[0.08] p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[11px] font-semibold text-[#757575] uppercase tracking-wider">Efektivitas 3R</span>
+          <span class="text-xs">💧</span>
+        </div>
+        <div class="text-3xl font-extrabold text-[#0075de] mb-1">
+          78.4%
+        </div>
+        <div class="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden mb-2">
+          <div class="bg-[#0075de] h-full w-[78%]"></div>
+        </div>
+        <div class="text-[11px] text-[#615d59]">
+          Penurunan titik api setelah sekat kanal berjenjang aktif.
+        </div>
+      </div>
+
+      <!-- KPI 4 -->
+      <div class="bg-white rounded-xl border border-black/[0.08] p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[11px] font-semibold text-[#757575] uppercase tracking-wider">Latensi Alert IoT</span>
+          <span class="text-xs">📡</span>
+        </div>
+        <div class="text-3xl font-extrabold text-amber-600 mb-1">
+          &lt; 15 dtk
+        </div>
+        <div class="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden mb-2">
+          <div class="bg-amber-500 h-full w-[95%]"></div>
+        </div>
+        <div class="text-[11px] text-[#615d59]">
+          Kecepatan telemetri soil probe ke pos pantau satelit.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- THEMATIC INFOGRAPHIC SCHEMATIC: ANATOMI LAHAN GAMBUT & SEKAT KANAL -->
+    <div class="bg-white rounded-xl border border-black/[0.08] p-6 sm:p-8 mb-8">
+      <div class="flex items-center justify-between mb-6 pb-4 border-b border-black/[0.06]">
+        <div>
+          <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">Diagram Visual 01</span>
+          <h2 class="text-lg font-bold text-[#111111] mt-0.5">Anatomi Kubah Gambut Basah vs Terdegradasi & Mekanisme Sekat Kanal</h2>
+        </div>
+        <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+          Kunci: Cegah Pengeringan Kanal
+        </span>
+      </div>
+
+      <!-- Inline SVG Thematic Peatland Illustration -->
+      <div class="w-full overflow-x-auto">
+        <svg viewBox="0 0 900 280" class="w-full min-w-[700px] h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sky Background -->
+          <rect width="900" height="280" rx="8" fill="#F4F8F5"/>
+          
+          <!-- Healthy Peat Left Side -->
+          <path d="M 0 100 Q 225 90 450 110 L 450 280 L 0 280 Z" fill="#3D2B1F" opacity="0.9"/>
+          <path d="M 0 100 Q 225 90 450 110 L 450 140 L 0 140 Z" fill="#6B4423" opacity="0.8"/>
+          <rect x="0" y="85" width="450" height="20" fill="#2E7D32" rx="4" opacity="0.85"/>
+          
+          <!-- Degraded Peat Right Side -->
+          <path d="M 450 110 Q 675 130 900 135 L 900 280 L 450 280 Z" fill="#2E1C12" opacity="0.95"/>
+          <rect x="450" y="125" width="450" height="15" fill="#8D6E63" rx="2"/>
+
+          <!-- Water Table Line -->
+          <line x1="20" y1="125" x2="430" y2="125" stroke="#0284C7" stroke-width="3" stroke-dasharray="6 4"/>
+          <text x="30" y="120" fill="#0369A1" font-size="12" font-weight="bold" font-family="sans-serif">Muka Air Terjaga (-20cm s/d -35cm)</text>
+
+          <line x1="470" y1="210" x2="880" y2="210" stroke="#DC2626" stroke-width="3" stroke-dasharray="6 4"/>
+          <text x="500" y="200" fill="#DC2626" font-size="12" font-weight="bold" font-family="sans-serif">Kering Kritis (&gt; -60cm: Rawan Api Bawah Tanah)</text>
+
+          <!-- Canal Blocking (Sekat Kanal) -->
+          <rect x="435" y="70" width="30" height="160" rx="4" fill="#0284C7" stroke="#0369A1" stroke-width="2"/>
+          <text x="450" y="60" text-anchor="middle" fill="#0369A1" font-size="11" font-weight="bold" font-family="sans-serif">Sekat Kanal (Canal Block)</text>
+
+          <!-- Trees Healthy -->
+          <g transform="translate(60, 20)">
+            <rect x="25" y="35" width="6" height="35" fill="#5D4037"/>
+            <circle cx="28" cy="30" r="22" fill="#15803D"/>
+            <text x="28" y="78" text-anchor="middle" fill="#14532D" font-size="10" font-weight="600" font-family="sans-serif">Sagu & Jelutung</text>
+          </g>
+
+          <g transform="translate(190, 25)">
+            <rect x="25" y="30" width="5" height="35" fill="#5D4037"/>
+            <circle cx="27.5" cy="25" r="18" fill="#16A34A"/>
+            <text x="27.5" y="73" text-anchor="middle" fill="#14532D" font-size="10" font-weight="600" font-family="sans-serif">Purun Rawa</text>
+          </g>
+
+          <g transform="translate(310, 15)">
+            <rect x="25" y="40" width="6" height="35" fill="#5D4037"/>
+            <circle cx="28" cy="35" r="24" fill="#15803D"/>
+            <text x="28" y="83" text-anchor="middle" fill="#14532D" font-size="10" font-weight="600" font-family="sans-serif">Tengkawang</text>
+          </g>
+
+          <!-- Dead trees on degraded side -->
+          <g transform="translate(620, 70)">
+            <line x1="20" y1="55" x2="20" y2="10" stroke="#78350F" stroke-width="4"/>
+            <line x1="20" y1="30" x2="35" y2="18" stroke="#78350F" stroke-width="3"/>
+            <line x1="20" y1="40" x2="8" y2="28" stroke="#78350F" stroke-width="3"/>
+            <text x="20" y="68" text-anchor="middle" fill="#991B1B" font-size="10" font-weight="600" font-family="sans-serif">Kanal Drainase Liar</text>
+          </g>
+
+          <g transform="translate(780, 65)">
+            <circle cx="30" cy="35" r="14" fill="#F97316" opacity="0.8"/>
+            <circle cx="30" cy="35" r="8" fill="#EF4444"/>
+            <text x="30" y="65" text-anchor="middle" fill="#991B1B" font-size="10" font-weight="bold" font-family="sans-serif">Smouldering Fire</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 pt-4 border-t border-black/[0.04] text-xs">
+        <div class="flex items-start gap-2.5">
+          <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold shrink-0 mt-0.5">✓</span>
+          <div>
+            <strong class="text-[#111111]">Lahan Basah Tersekat (Paludikultur)</strong>
+            <p class="text-[#615d59] mt-0.5">Sekat kanal menahan air agar tidak kabur ke laut. Tanah gambut tetap seperti spons basah, oksigen tidak masuk ke lapisan dalam, api tidak dapat menjalar.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-2.5">
+          <span class="w-5 h-5 rounded-full bg-red-100 text-red-800 flex items-center justify-center font-bold shrink-0 mt-0.5">✕</span>
+          <div>
+            <strong class="text-[#111111]">Kanal Drainase Tanpa Sekat (Kering & Rapuh)</strong>
+            <p class="text-[#615d59] mt-0.5">Air gambut terkuras habis. Karbon purba terekspos udara bebas dan menjadi bahan bakar laten yang memicu kebakaran bawah tanah (*smouldering*) berbulan-bulan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KOMPARASI KOMODITAS TANAMAN PALUDIKULTUR -->
+    <div class="bg-white rounded-xl border border-black/[0.08] overflow-hidden mb-8">
+      <div class="p-5 border-b border-black/[0.06] flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">Matriks Tanaman Adaptif</span>
+          <h3 class="text-base font-bold text-[#111111]">4 Spesies Komoditas Gambut Ramah Air (Zero-Burning)</h3>
+        </div>
+        <span class="text-xs text-[#757575] font-mono">Tahan Genangan Air & Efonomis</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-[#111111]">
+          <thead class="bg-[#f6f5f4] text-[11px] font-semibold text-[#757575] uppercase tracking-wider">
+            <tr>
+              <th class="py-3 px-4">Komoditas & Latin</th>
+              <th class="py-3 px-4">Karakteristik Akar & Air</th>
+              <th class="py-3 px-4 text-center">Toleransi Genangan</th>
+              <th class="py-3 px-4">Manfaat Ekonomi</th>
+              <th class="py-3 px-4 text-center">Fungsi Anti-Api</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-black/[0.06]">
+            <tr class="hover:bg-emerald-50/40 transition">
+              <td class="py-3.5 px-4 font-semibold text-emerald-900">
+                🌴 Sagu (<em>Metroxylon sagu</em>)
+                <div class="text-[11px] text-[#757575] font-normal">Pangan pokok rawa basah</div>
+              </td>
+              <td class="py-3.5 px-4 text-[#615d59]">Akar serabut tebal mengikat struktur gambut agar tidak amblas (subsidensi)</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Sangat Tinggi (100%)</span>
+              </td>
+              <td class="py-3.5 px-4 text-[#615d59]">Tepung sagu, gula cair, bioetanol, daun atap rumbia</td>
+              <td class="py-3.5 px-4 text-center font-bold text-emerald-700">Penahan Air Alami</td>
+            </tr>
+
+            <tr class="hover:bg-emerald-50/40 transition">
+              <td class="py-3.5 px-4 font-semibold text-emerald-900">
+                🌾 Purun Danau (<em>Lepironia articulata</em>)
+                <div class="text-[11px] text-[#757575] font-normal">Tumbuhan perintis rawa</div>
+              </td>
+              <td class="py-3.5 px-4 text-[#615d59]">Rizoma penyerap racun asam pirit dan penyerap kelembaban permukaan</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Tinggi (Genangan 30-50cm)</span>
+              </td>
+              <td class="py-3.5 px-4 text-[#615d59]">Kerajinan anyaman tas, tikar, sedotan organik ekspor</td>
+              <td class="py-3.5 px-4 text-center font-bold text-emerald-700">Karpet Basah Penutup Tanah</td>
+            </tr>
+
+            <tr class="hover:bg-emerald-50/40 transition">
+              <td class="py-3.5 px-4 font-semibold text-emerald-900">
+                🌳 Jelutung Rawa (<em>Dyera polyphylla</em>)
+                <div class="text-[11px] text-[#757575] font-normal">Pohon getah asli kubah</div>
+              </td>
+              <td class="py-3.5 px-4 text-[#615d59]">Akar lutut (*pneumatophore*) bernapas di atas air rawa pasang-surut</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Sangat Tinggi</span>
+              </td>
+              <td class="py-3.5 px-4 text-[#615d59]">Getah permen karet alam, vernis, kayu pensil ringan</td>
+              <td class="py-3.5 px-4 text-center font-bold text-emerald-700">Kanopi Penjaga Mikroklimat</td>
+            </tr>
+
+            <tr class="hover:bg-emerald-50/40 transition">
+              <td class="py-3.5 px-4 font-semibold text-emerald-900">
+                🪵 Tengkawang / Shorea (<em>Shorea balangeran</em>)
+                <div class="text-[11px] text-[#757575] font-normal">Pohon kanopi penyerap karbon</div>
+              </td>
+              <td class="py-3.5 px-4 text-[#615d59]">Akar papan (*buttress*) memperkuat kestabilan dinding kanal</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Sedang - Tinggi</span>
+              </td>
+              <td class="py-3.5 px-4 text-[#615d59]">Minyak nabati tengkawang (*green butter* kosmetik premium)</td>
+              <td class="py-3.5 px-4 text-center font-bold text-emerald-700">Dinding Penahan Erosi Kanal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 3 PILAR STRATEGI RESTORASI (3R ACTIONABLE CARDS) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      
+      <!-- Pilar 1 -->
+      <div class="bg-white rounded-xl border border-black/[0.08] p-6 relative overflow-hidden">
+        <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#0075de] flex items-center justify-center font-bold text-sm mb-3">1</div>
+        <div class="text-[11px] font-semibold text-[#0075de] uppercase tracking-wider mb-1">Pilar 1: Hidrologis</div>
+        <h3 class="text-base font-bold text-[#111111] mb-2">Rewetting (Pembasahan)</h3>
+        <p class="text-xs text-[#615d59] leading-relaxed mb-4">
+          Membangun sekat kanal kayu/komposit berjenjang dan sumur bor darurat. Menjaga muka air gambut stabil di atas -40cm agar tidak menjadi tinderbox saat musim kemarau El Niño.
+        </p>
+        <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md">
+          Target: Muka air &gt; -40cm
+        </span>
+      </div>
+
+      <!-- Pilar 2 -->
+      <div class="bg-white rounded-xl border border-black/[0.08] p-6 relative overflow-hidden">
+        <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-sm mb-3">2</div>
+        <div class="text-[11px] font-semibold text-emerald-700 uppercase tracking-wider mb-1">Pilar 2: Vegetasi Alami</div>
+        <h3 class="text-base font-bold text-[#111111] mb-2">Revegetation (Revegetasi)</h3>
+        <p class="text-xs text-[#615d59] leading-relaxed mb-4">
+          Menanam kembali vegetasi endemik seperti Jelutung, Belangeran, dan Purun di zona lindung kubah gambut. Menghentikan penanaman monokultur yang rakus air dan memerlukan drainase dalam.
+        </p>
+        <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md">
+          Target: Tutupan Hutan 70%
+        </span>
+      </div>
+
+      <!-- Pilar 3 -->
+      <div class="bg-white rounded-xl border border-black/[0.08] p-6 relative overflow-hidden">
+        <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center font-bold text-sm mb-3">3</div>
+        <div class="text-[11px] font-semibold text-amber-700 uppercase tracking-wider mb-1">Pilar 3: Sosio-Ekonomi & IoT</div>
+        <h3 class="text-base font-bold text-[#111111] mb-2">Revitalization (Revitalisasi)</h3>
+        <p class="text-xs text-[#615d59] leading-relaxed mb-4">
+          Mengganti pola tebas-bakar (*slash-and-burn*) dengan pertanian paludikultur berinsentif ekonomi + menyebarkan probe sensor tanah LoRaWAN real-time untuk alarm dini karhutla.
+        </p>
+        <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-md">
+          Target: Pendapatan Komoditas Berkelanjutan
+        </span>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-black/[0.08] bg-white py-6 mt-12 text-center text-xs text-[#757575]">
+    <div class="max-w-7xl mx-auto px-4">
+      Aneta Reports &bull; Laporan Riset Infografis Tematik &bull; report.aneta.my.id
+    </div>
+  </footer>
+
+</body>
+</html>

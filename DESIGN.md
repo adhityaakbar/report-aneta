@@ -79,7 +79,12 @@ Tactile analog warmth ("warm paper notebook under afternoon sun") coupled with h
 - **Editorial Accent:** Source Serif Pro / Lyon Text for editorial summaries and section lead-ins.
 - **Pills & Badges:** `rounded-full` (9999px) with tight padding for tags and status indicators.
 
-## 4. Anti-Patterns
-- Never invert the hierarchy by putting a warm `#f6f5f4` card on a pure white `#ffffff` canvas.
-- No heavy blurred drop shadows on content cards; hairline borders only.
-- Strict single primary blue CTA commitment per view to maintain visual tranquility.
+## 5. Thematic Infographics & UI/UX Pro Max Standard
+- **Thematic Visual Adaptation:** Each report dynamically adapts visual motifs, badges, and inline SVG illustrations to its subject (e.g., peatland cross-sections, canal block diagrams, water table gauges for environmental topics; network topologies, token throughput sparklines for tech topics).
+- **Infographic Dashboard Structure:**
+  1. **Visual Hero:** Editorial lead with high-impact key takeaway and quick status meter.
+  2. **Bento KPI Matrix:** Visual metric cards with bold numbers, percentage deltas, and progress bars/sparklines.
+  3. **Visual Concept Explainer:** An interactive or inline SVG schematic (process flow, 3R framework, before/after comparison).
+  4. **Comparison Matrix:** Clean table with inline contextual icons and color-coded status badges.
+  5. **Structured Action Items:** 3-column recommendation cards with priority badges.
+- **Micro-Interactions:** Smooth hover transitions (`150ms ease`), pill filter buttons, and instant search feedback without layout shift.

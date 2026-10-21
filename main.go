@@ -805,7 +805,7 @@ func buildIndexHTML(reports []ReportItem) {
 
         // 2. Client-side fallback to 9router API if server API route is pending Nginx reload
         if (!result) {
-          const sysPrompt = "You are an elite Tech Research Analyst at Aneta Research. Produce comprehensive technology benchmarks formatted strictly as standalone, responsive, interactive HTML applications matching Notion DESIGN.MD: warm paper canvas (#f6f5f4), white cards (#ffffff) with 1px hairline border, Notion Blue (#0075de) buttons, Inter font. Include Header, Title, 4 Metric KPI Cards, Search filter, Structured Table, and 3-column Recommendations.";
+          const sysPrompt = "You are an elite Tech Research Analyst and Information Designer at Aneta Research. Produce comprehensive technology and multi-domain research formatted strictly as standalone, responsive, interactive HTML applications matching Notion DESIGN.MD: warm paper canvas (#f6f5f4), white cards (#ffffff) with 1px hairline border, Notion Blue (#0075de) buttons, Inter font. CRITICAL: 1. THEMATIC VISUALS: Include inline SVG illustrations and contextual icons matching the theme (e.g. peatland diagrams, water table gauges, neural diagrams, or cost charts). 2. INFOGRAPHIC LAYOUT: Build an easy-to-understand executive infographic dashboard with Visual Hero, Bento KPI metric cards with micro-progress/sparkline bars, an Infographic Explainer Diagram (process flow or visual breakdown), an interactive comparison matrix table, and actionable 3-column recommendation cards.";
           const usrPrompt = "Topic: " + topic + "\\nMode: " + currentMode + "\\nGenerate JSON: {\\\"title\\\": \\\"...\\\", \\\"slug\\\": \\\"reseller-ai-token-local-9router\\\", \\\"category\\\": \\\"AI Models\\\", \\\"summary\\\": \\\"...\\\", \\\"tags\\\": [\\\"Reseller\\\", \\\"9router\\\"], \\\"html\\\": \\\"<!DOCTYPE html>...\\\"}\\nReturn STRICTLY valid JSON without backticks.";
 
           const directRes = await fetch("https://9router.mytsel.id/v1/chat/completions", {
@@ -1013,30 +1013,33 @@ func handleResearch(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// 3. System prompt & user prompt for 9router 9combos-agy
-	systemPrompt := `You are an elite Tech Research Analyst and Senior Frontend Engineer at Aneta Research.
-You produce comprehensive, executive-grade technology and AI benchmarks formatted strictly as standalone, responsive, interactive HTML applications.
+	systemPrompt := `You are an elite Tech Research Analyst, Information Designer, and Senior Frontend Engineer at Aneta Research.
+You produce comprehensive, executive-grade technology and multi-domain research formatted strictly as standalone, responsive, interactive, and visually engaging HTML applications.
 
-CRITICAL DESIGN REQUIREMENT (NOTION DESIGN SYSTEM - DESIGN.MD):
-You MUST follow the Notion Design System exactly as defined in DESIGN.MD:
-- Theme: Light / Warm Paper Canvas ("warm paper notebook under afternoon sun").
-- Background: #f6f5f4 (--color-paper-warmth). NEVER use dark/navy/cyberpunk backgrounds!
-- Cards / Surfaces: #ffffff (--color-pure-white) with 1px hairline border rgba(0, 0, 0, 0.08), 12px border radius (rounded-xl), NO heavy drop shadows.
-- Primary Action / CTA: #0075de (--color-notion-blue), text #ffffff, 8px radius.
-- Secondary Actions / Badges: #e6f3fe (sky tint) with #0075de text, or warm subtle pills.
-- Typography:
-  - Font: Inter, -apple-system, system-ui, sans-serif.
-  - Headings: #111111 / #000000 with tight negative tracking (-0.03em).
-  - Body Text: #615d59 (warm graphite) and #111111, muted labels #757575.
-  - Editorial Accents: Source Serif 4 or serif quotes where appropriate.
-- Accent Highlights (use sparingly):
-  - Marigold #ffb110, Coral #f64932, Signal Blue #097fe8.
-- Layout Sections:
-  1. Header: Aneta Research breadcrumb & badges (in #e6f3fe / #0075de), publication date.
-  2. Large title with tight letter-spacing + executive summary in warm graphite.
-  3. 4 Executive Metric Cards: Pure white (#ffffff) cards with 1px solid rgba(0,0,0,0.08) border, large bold stats.
-  4. Search bar & filter pills (Notion pills, rounded-full, 1px border).
-  5. Interactive Data Table: Clean white card container, subtle zebra or border dividers, clear status badges.
-  6. Actionable Takeaways & Recommendations in 3-column white cards.`
+CRITICAL DESIGN & INFOGRAPHIC REQUIREMENTS (UI/UX PRO MAX + NOTION DESIGN.MD + INFOGRAPHIC DESIGN SYSTEM):
+1. THEMATIC VISUAL ADAPTATION (Context-Aware Micro-Visuals & Icons):
+   - Adapt the visual motifs, badges, SVG diagrams, and iconography to match the RESEARCH THEME:
+     * e.g., for Peatland / Agriculture / Environment: include detailed inline SVG illustrations of peat layers, canal blocks (sekat kanal), vegetation roots, water table levels, moisture bars, and natural green/earthy micro-accents.
+     * e.g., for AI / Infrastructure: include neural diagrams, token throughput meters, server nodes, latency flow arrows.
+     * e.g., for FinTech / Pricing: include cost flow charts, tier comparison badges, margin progress bars.
+   - Use high-quality inline SVG icons (heroicons/lucide style) and thematic miniature illustrations (bento infographics, step diagrams, progress meters). NEVER use plain text placeholders when visual diagrams explain it better!
+
+2. INFOGRAPHIC LAYOUT STRUCTURE (Easy-to-Understand Visual Summary):
+   - Design the report like an executive Infographic Dashboard:
+     * Visual Hero Section: Theme badge, Title with negative tracking, High-impact summary lead, and a Visual Status/Index Gauge.
+     * Bento Infographic Grid: 4-6 visual metric cards featuring large typography, percentage deltas, micro-charts (pure CSS/SVG sparklines or progress rings), and descriptive taglines.
+     * Thematic Visual Explainer / Infographic Diagram: A dedicated visual section explaining the core concept (e.g., 3-stage process flow, architecture layers, before-after bridge, or visual breakdown with SVG callouts).
+     * Interactive Comparison Table / Matrix: Clean search/filter pills, contextual icons on each row, color-coded status badges, and precise quantitative comparisons.
+     * Actionable 3-Column Recommendations: Action cards with numbered step pills, key takeaways, and priority badges.
+
+3. NOTION DESIGN SYSTEM COMPLIANCE (DESIGN.MD):
+   - Theme Canvas: Warm Paper Canvas #f6f5f4 (--color-paper-warmth). Never use dark cyberpunk neon backgrounds!
+   - Card Surfaces: #ffffff (--color-pure-white) with 1px hairline border rgba(0, 0, 0, 0.08), 12px border radius (rounded-xl), zero harsh drop-shadows.
+   - Primary Accent: #0075de (--color-notion-blue) with subtle secondary washes (#e6f3fe).
+   - Thematic Accent Colors (Subtle & Intentional): Emerald/Forest (#10b981 / #047857) for nature/peatland, Amber (#ffb110) for warning/cost, Coral (#f64932) for critical/fire, Blue (#0075de) for tech/active.
+   - Typography: Clean Inter font for UI & analytics, optional serif accent (Source Serif 4) for editorial blockquotes.
+
+Ensure the output is 100% self-contained HTML with Tailwind CSS CDN, responsive on mobile & desktop, and delighting to read as an intuitive infographic.`
 
 	userPrompt := fmt.Sprintf(`Topic: %s
 Mode: %s
