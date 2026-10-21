@@ -634,82 +634,71 @@ func buildIndexHTML(reports []ReportItem) {
     let currentMode = 'new';
     const allReports = %s;
 
-    let authModal, chatDrawer, secretInput, authError, modeNewBtn, modeEnhanceBtn;
-    let enhanceSelectContainer, targetResearchSelect, chatMessages, chatInput, searchInput, noResults;
-
-    function initDOMElements() {
-      authModal = document.getElementById('authModal');
-      chatDrawer = document.getElementById('chatDrawer');
-      secretInput = document.getElementById('secretInput');
-      authError = document.getElementById('authError');
-      modeNewBtn = document.getElementById('modeNewBtn');
-      modeEnhanceBtn = document.getElementById('modeEnhanceBtn');
-      enhanceSelectContainer = document.getElementById('enhanceSelectContainer');
-      targetResearchSelect = document.getElementById('targetResearchSelect');
-      chatMessages = document.getElementById('chatMessages');
-      chatInput = document.getElementById('chatInput');
-      searchInput = document.getElementById('searchInput');
-      noResults = document.getElementById('noResults');
+    function getEl(id) {
+      return document.getElementById(id);
     }
-    initDOMElements();
 
     function populateDropdown() {
-      targetResearchSelect.innerHTML = allReports.map(r => 
-        '<option value="' + r.slug + '">' + r.title + '</option>'
-      ).join('');
-    }
-    populateDropdown();
-
-    document.getElementById('openResearchBtn').addEventListener('click', () => {
-      if (currentAuthKey === 'guardian8') {
-        openChatDrawer();
-      } else {
-        openAuthModal();
+      const select = getEl('targetResearchSelect');
+      if (select && Array.isArray(allReports)) {
+        select.innerHTML = allReports.map(r => 
+          '<option value="' + r.slug + '">' + r.title + '</option>'
+        ).join('');
       }
-    });
+    }
 
     function openAuthModal() {
-      authModal.classList.remove('hidden');
-      secretInput.value = '';
-      authError.classList.add('hidden');
-      secretInput.focus();
+      const modal = getEl('authModal');
+      const input = getEl('secretInput');
+      const err = getEl('authError');
+      if (modal) modal.classList.remove('hidden');
+      if (input) { input.value = ''; input.focus(); }
+      if (err) err.classList.add('hidden');
     }
 
     function closeAuthModal() {
-      authModal.classList.add('hidden');
+      const modal = getEl('authModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function openChatDrawer() {
+      const drawer = getEl('chatDrawer');
+      if (drawer) drawer.classList.remove('hidden');
+    }
+
+    function closeChatDrawer() {
+      const drawer = getEl('chatDrawer');
+      if (drawer) drawer.classList.add('hidden');
     }
 
     function handleAuthSubmit(e) {
-      e.preventDefault();
-      const val = secretInput.value.trim();
+      if (e && e.preventDefault) e.preventDefault();
+      const input = getEl('secretInput');
+      const err = getEl('authError');
+      const val = input ? input.value.trim() : '';
       if (val === 'guardian8') {
         currentAuthKey = val;
         sessionStorage.setItem('aneta_research_key', val);
         closeAuthModal();
         openChatDrawer();
       } else {
-        authError.classList.remove('hidden');
+        if (err) err.classList.remove('hidden');
       }
-    }
-
-    function openChatDrawer() {
-      chatDrawer.classList.remove('hidden');
-    }
-
-    function closeChatDrawer() {
-      chatDrawer.classList.add('hidden');
     }
 
     function setResearchMode(mode) {
       currentMode = mode;
+      const modeNewBtn = getEl('modeNewBtn');
+      const modeEnhanceBtn = getEl('modeEnhanceBtn');
+      const container = getEl('enhanceSelectContainer');
       if (mode === 'new') {
-        modeNewBtn.className = "px-3 py-1 rounded-lg text-xs font-semibold bg-[#111111] text-white transition";
-        modeEnhanceBtn.className = "px-3 py-1 rounded-lg text-xs font-medium text-[#615d59] hover:bg-black/5 transition";
-        enhanceSelectContainer.classList.add('hidden');
+        if (modeNewBtn) modeNewBtn.className = "px-3 py-1 rounded-lg text-xs font-semibold bg-[#111111] text-white transition";
+        if (modeEnhanceBtn) modeEnhanceBtn.className = "px-3 py-1 rounded-lg text-xs font-medium text-[#615d59] hover:bg-black/5 transition";
+        if (container) container.classList.add('hidden');
       } else {
-        modeEnhanceBtn.className = "px-3 py-1 rounded-lg text-xs font-semibold bg-[#111111] text-white transition";
-        modeNewBtn.className = "px-3 py-1 rounded-lg text-xs font-medium text-[#615d59] hover:bg-black/5 transition";
-        enhanceSelectContainer.classList.remove('hidden');
+        if (modeEnhanceBtn) modeEnhanceBtn.className = "px-3 py-1 rounded-lg text-xs font-semibold bg-[#111111] text-white transition";
+        if (modeNewBtn) modeNewBtn.className = "px-3 py-1 rounded-lg text-xs font-medium text-[#615d59] hover:bg-black/5 transition";
+        if (container) container.classList.remove('hidden');
       }
     }
 
@@ -719,9 +708,39 @@ func buildIndexHTML(reports []ReportItem) {
         return;
       }
       setResearchMode('enhance');
-      targetResearchSelect.value = slug;
+      const select = getEl('targetResearchSelect');
+      if (select) select.value = slug;
       openChatDrawer();
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      populateDropdown();
+      const openBtn = getEl('openResearchBtn');
+      if (openBtn) {
+        openBtn.addEventListener('click', () => {
+          if (currentAuthKey === 'guardian8') {
+            openChatDrawer();
+          } else {
+            openAuthModal();
+          }
+        });
+      }
+    });
+    // Also run immediately in case DOM already loaded
+    setTimeout(() => {
+      populateDropdown();
+      const openBtn = getEl('openResearchBtn');
+      if (openBtn && !openBtn.dataset.bound) {
+        openBtn.dataset.bound = 'true';
+        openBtn.addEventListener('click', () => {
+          if (currentAuthKey === 'guardian8') {
+            openChatDrawer();
+          } else {
+            openAuthModal();
+          }
+        });
+      }
+    }, 50);
 
     async function handleSendResearch(e) {
       if (e && e.preventDefault) e.preventDefault();
@@ -913,8 +932,7 @@ func buildIndexHTML(reports []ReportItem) {
   </script>
 </body>
 </html>
-`, len(reports), cardsHTML.String(), time.Now().Year(), "allReportsDataPlaceholder")
-	html = strings.Replace(html, "\"allReportsDataPlaceholder\"", string(jsonReports), 1)
+`, len(reports), cardsHTML.String(), time.Now().Year(), string(jsonReports))
 
 	indexPath := filepath.Join(".", "index.html")
 	os.WriteFile(indexPath, []byte(html), 0644)
