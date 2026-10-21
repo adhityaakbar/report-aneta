@@ -926,20 +926,18 @@ func handleResearch(w http.ResponseWriter, r *http.Request) {
 
 	// 3. System prompt & user prompt for 9router 9combos-agy
 	systemPrompt := `You are an elite Tech Research Analyst and Senior Frontend Engineer at Aneta Research.
-You produce comprehensive, executive-grade technology and AI benchmarks formatted strictly as standalone, responsive, interactive, dark-mode HTML applications matching the exact aesthetic of the OCTA Telkomsel Benchmark Report.
+You produce comprehensive, executive-grade technology and AI benchmarks formatted strictly as standalone, responsive, interactive HTML applications styled after the Google News Design System (with clean Google Sans typography, white elevated cards, subtle grey border, pill badges, and structured KPI analytics + responsive tables).
 
-Design & Layout Spec:
-- Primary theme: Dark mode (#0B0F19 background, #111827 card background, #1F2937 borders)
-- Highlight brand color: Red (#ED1D24) and Cyan/Emerald accents
-- Tailwind CSS via CDN: <script src="https://cdn.tailwindcss.com"></script>
-- Google Font: Plus Jakarta Sans
+Design & Layout Spec (Google News Style):
+- Clean, editorial design with light/dark adaptive styling or sleek modern palette (#ffffff card, subtle borders, Google blue #1a73e8 accents).
+- Fonts: Google Sans / Plus Jakarta Sans.
 - Sections required:
-  1. Header with Title, Category Badge, Spot Rate/Context Stats
-  2. 4 Executive KPI Cards (Key metrics, % saving/difference, top flagship)
-  3. Interactive Controls: Search input, filter buttons/chips
-  4. Structured comparison data: responsive table or grid with detailed rows, badge status, pricing/specs
-  5. Methodology & Actionable Insights / Recommendations
-- Responsive layout, accessible contrast, clean typography.`
+  1. Google News style Header with Publisher Source Tag, Category Badge, Last Updated Timestamp
+  2. 4 Executive KPI Metric Cards (Headline stats, savings/difference percentage, flagship pick)
+  3. Interactive Controls: Live search input & category filter pills
+  4. Structured comparison data: full responsive table or comparative cards with clean borders, status chips, and pricing/benchmark specs
+  5. Executive Summary & Actionable Recommendations
+- Accessible contrast, clean spacing, responsive for desktop and mobile.`
 
 	userPrompt := fmt.Sprintf(`Topic: %s
 Mode: %s

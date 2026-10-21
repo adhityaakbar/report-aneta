@@ -1,20 +1,31 @@
 <!DOCTYPE html>
-<html lang="id" class="dark">
+<html lang="id" class="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OCTA Telkomsel AI Model Pricing & Worthiness Comparison</title>
+  <title>OCTA Telkomsel AI Model Pricing & Worthiness Comparison — Google News Style</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['"Google Sans"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            headline: ['"Google Sans"', 'sans-serif']
+          },
           colors: {
+            gblue: {
+              50: '#E8F0FE',
+              100: '#D2E3FC',
+              500: '#1A73E8',
+              600: '#1557B0',
+              700: '#174EA6',
+            },
             telkomsel: '#ED1D24',
-            darkbg: '#0B0F19',
-            cardbg: '#111827',
-            bordercol: '#1F2937'
+            darkbg: '#0F172A',
+            darkcard: '#1E293B',
+            darkborder: '#334155'
           }
         }
       }
@@ -22,59 +33,60 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #0B0F19;
-      color: #E2E8F0;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #F8FAFD;
+      color: #1F1F1F;
     }
-    .glow-red {
-      box-shadow: 0 0 50px -10px rgba(237, 29, 36, 0.2);
-    }
-    .glow-card {
-      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+    .dark body {
+      background-color: #0F172A;
+      color: #F8FAFC;
     }
     ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: #0B0F19;
+      background: #F1F3F4;
     }
     ::-webkit-scrollbar-thumb {
-      background: #1F2937;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #374151;
+      background: #DADCE0;
+      border-radius: 3px;
     }
   </style>
 </head>
-<body class="min-h-screen antialiased flex flex-col justify-between">
+<body class="min-h-screen antialiased flex flex-col justify-between bg-[#F8FAFD] text-[#1F1F1F]">
 
-  <!-- Header & Hero -->
-  <header class="border-b border-gray-800 bg-gray-950/70 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+  <!-- Google News Header -->
+  <header class="border-b border-gray-200 bg-white/95 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
       <div class="flex items-center gap-3">
-        <div class="h-10 w-10 rounded-xl bg-telkomsel/20 border border-telkomsel/40 flex items-center justify-center font-black text-telkomsel text-xl shadow-lg shadow-telkomsel/20">
-          O
-        </div>
-        <div>
-          <div class="flex items-center gap-2">
-            <h1 class="text-xl font-bold tracking-tight text-white">OCTA Telkomsel — AI Model Comparison</h1>
-            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/30">Official Rates</span>
+        <a href="/" class="flex items-center gap-2 group">
+          <div class="h-9 w-9 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-sky-500 flex items-center justify-center font-bold text-white text-lg shadow-sm">
+            A
           </div>
-          <p class="text-xs text-gray-400">Analisis Komparasi 35 Model AI: Harga OCTA vs Retail Provider Resmi (Rupiah & Sumber)</p>
-        </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs uppercase font-bold tracking-wider text-blue-600">Aneta Research</span>
+              <span class="text-gray-300">•</span>
+              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-red-50 text-red-600 border border-red-200">Official Benchmark</span>
+            </div>
+            <h1 class="text-base font-bold text-gray-900 leading-tight">OCTA Telkomsel AI Model Pricing & Analytics</h1>
+          </div>
+        </a>
       </div>
-      <div class="flex items-center gap-3 text-xs">
-        <div class="bg-gray-900 border border-gray-800 rounded-lg px-3 py-1.5 text-gray-300">
-          <span class="text-gray-500">Kurs Spot:</span> <strong class="text-emerald-400 font-mono">Rp 17.850 / USD</strong>
+      <div class="flex items-center gap-2 text-xs">
+        <div class="bg-gray-100 border border-gray-200 rounded-lg px-3 py-1 text-gray-700">
+          <span class="text-gray-500">Spot Rate:</span> <strong class="text-emerald-600 font-mono">Rp 17.850 / USD</strong>
         </div>
-        <div class="bg-gray-900 border border-gray-800 rounded-lg px-3 py-1.5 text-gray-300">
-          <span class="text-gray-500">Nilai Kredit:</span> <strong class="text-cyan-400 font-mono">1 Kredit = Rp 1</strong>
+        <div class="bg-gray-100 border border-gray-200 rounded-lg px-3 py-1 text-gray-700">
+          <span class="text-gray-500">Kredit:</span> <strong class="text-blue-600 font-mono">1 Kredit = Rp 1</strong>
         </div>
+        <a href="/" class="ml-2 px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition shadow-sm">
+          &larr; Dashboard
+        </a>
       </div>
     </div>
   </header>
@@ -82,212 +94,131 @@
   <!-- Main Content -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-1">
     
-    <!-- Executive KPI Summary Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-      <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-5 glow-card">
-        <div class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Total Model Aktif</div>
-        <div class="text-3xl font-extrabold text-white flex items-baseline gap-2">
-          35 <span class="text-xs font-normal text-gray-400">model AI</span>
+    <!-- Headline Card (Google News Top Story Style) -->
+    <div class="bg-white border border-gray-200/90 rounded-2xl p-6 sm:p-8 mb-8 shadow-sm">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-600 border border-blue-200">
+            KOMPARASI RESMI TELKOMSEL
+          </span>
+          <span class="text-xs text-gray-400">•</span>
+          <span class="text-xs font-medium text-gray-500">Kategori: AI Models & LLM</span>
         </div>
-        <div class="mt-2 text-xs text-gray-400 flex items-center gap-1.5">
-          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
-          9 Provider Top (Anthropic, OpenAI, Google, DeepSeek, xAI, dll)
-        </div>
-      </div>
-
-      <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-5 glow-card">
-        <div class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Diskon Platform OCTA</div>
-        <div class="text-3xl font-extrabold text-emerald-400 flex items-baseline gap-2">
-          10% – 20% <span class="text-xs font-normal text-gray-400">potongan</span>
-        </div>
-        <div class="mt-2 text-xs text-gray-400">
-          Tier diskon platform langsung pada input/output kredit
+        <div class="text-xs text-gray-500 font-mono">
+          2026-10-21 &middot; 35 Model Terverifikasi
         </div>
       </div>
 
-      <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-5 glow-card">
-        <div class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Net Efisiensi Biaya</div>
-        <div class="text-3xl font-extrabold text-cyan-400 flex items-baseline gap-2">
-          +11.9% <span class="text-xs font-normal text-gray-400">rata-rata</span>
-        </div>
-        <div class="mt-2 text-xs text-gray-400">
-          Lebih hemat vs direct billing USD valas (+ bebas surcharge kartu kredit)
-        </div>
-      </div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight leading-tight mb-3">
+        Analisis Komparasi 35 Model AI: Tarif OCTA Telkomsel vs Retail Provider Global (OpenAI, Anthropic, Google, xAI, DeepSeek)
+      </h1>
+      <p class="text-gray-600 text-sm sm:text-base leading-relaxed max-w-4xl mb-6">
+        Evaluasi mendalam perbandingan biaya inferensi token input dan output berbasis kurs spot Rupiah. Mengukur efisiensi langsung pemakaian model LLM via saldo kredit Telkomsel OCTA tanpa surcharge konversi valuta asing dan biaya perbankan internasional.
+      </p>
 
-      <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-5 glow-card">
-        <div class="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Best Value Flagship</div>
-        <div class="text-xl font-bold text-white truncate">Claude Sonnet 5</div>
-        <div class="mt-2 text-xs text-gray-400">
-          Input <strong class="text-emerald-400 font-mono">Rp 31.458</strong> / 1M Token (Hemat ~Rp 4.243)
+      <!-- 4 Google News Styled Metric Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6 border-t border-gray-100">
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-200/80">
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Total Model Aktif</div>
+          <div class="text-2xl font-black text-gray-900">35 <span class="text-xs font-normal text-gray-500">model</span></div>
+          <div class="text-xs text-emerald-600 mt-1 font-medium">9 Provider Terkemuka</div>
+        </div>
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-200/80">
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Diskon Platform OCTA</div>
+          <div class="text-2xl font-black text-emerald-600">10% – 20%</div>
+          <div class="text-xs text-gray-500 mt-1">Potongan input/output</div>
+        </div>
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-200/80">
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Net Efisiensi Biaya</div>
+          <div class="text-2xl font-black text-blue-600">+11.9%</div>
+          <div class="text-xs text-gray-500 mt-1">Rata-rata penghematan IDR</div>
+        </div>
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-200/80">
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Flagship Recommendation</div>
+          <div class="text-xl font-bold text-gray-900 truncate">Claude Sonnet 5</div>
+          <div class="text-xs text-emerald-600 mt-1 font-mono font-medium">Hemat ~Rp 4.243 / 1M</div>
         </div>
       </div>
     </div>
 
-    <!-- Controls: Search & Filter Tabs -->
-    <div class="bg-gray-900/80 border border-gray-800 rounded-2xl p-4 mb-6 backdrop-blur flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
+    <!-- Controls: Search & Filter Tabs (Google News Style Chips) -->
+    <div class="bg-white border border-gray-200 rounded-2xl p-4 mb-6 shadow-sm flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
       
       <!-- Search -->
       <div class="relative flex-1 max-w-md">
         <input 
           id="searchInput" 
           type="text" 
-          placeholder="Cari model atau provider (contoh: Sonnet, GPT, Gemini, Kimi)..." 
-          class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-red-500/60 focus:ring-1 focus:ring-red-500/50"
+          placeholder="Cari model atau provider (Sonnet, GPT, Gemini, Kimi)..." 
+          class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-xs text-gray-800 placeholder-gray-400 focus:outline-none focus:bg-white focus:border-blue-500 transition shadow-inner"
         >
-        <span class="absolute right-3 top-2.5 text-gray-500 text-xs">Press /</span>
+        <span class="absolute right-3 top-2.5 text-gray-400 text-xs">Press /</span>
       </div>
 
       <!-- Provider Filter Buttons -->
       <div class="flex items-center gap-1.5 overflow-x-auto pb-2 md:pb-0 text-xs no-scrollbar">
-        <button onclick="setProvider('all')" data-provider="all" class="filter-btn active px-3 py-1.5 rounded-lg border border-red-500/40 bg-red-500/20 text-red-400 font-semibold whitespace-nowrap">Semua (35)</button>
-        <button onclick="setProvider('Anthropic')" data-provider="Anthropic" class="filter-btn px-3 py-1.5 rounded-lg border border-gray-800 bg-gray-950 text-gray-400 hover:text-gray-200 whitespace-nowrap">Anthropic (10)</button>
-        <button onclick="setProvider('Google')" data-provider="Google" class="filter-btn px-3 py-1.5 rounded-lg border border-gray-800 bg-gray-950 text-gray-400 hover:text-gray-200 whitespace-nowrap">Google (10)</button>
-        <button onclick="setProvider('Openai')" data-provider="Openai" class="filter-btn px-3 py-1.5 rounded-lg border border-gray-800 bg-gray-950 text-gray-400 hover:text-gray-200 whitespace-nowrap">OpenAI (5)</button>
-        <button onclick="setProvider('Xai')" data-provider="Xai" class="filter-btn px-3 py-1.5 rounded-lg border border-gray-800 bg-gray-950 text-gray-400 hover:text-gray-200 whitespace-nowrap">xAI (3)</button>
-        <button onclick="setProvider('Deepseek')" data-provider="Deepseek" class="filter-btn px-3 py-1.5 rounded-lg border border-gray-800 bg-gray-950 text-gray-400 hover:text-gray-200 whitespace-nowrap">DeepSeek (1)</button>
-        <button onclick="setProvider('Others')" data-provider="Others" class="filter-btn px-3 py-1.5 rounded-lg border border-gray-800 bg-gray-950 text-gray-400 hover:text-gray-200 whitespace-nowrap">Lainnya (6)</button>
+        <button onclick="setProvider('all')" data-provider="all" class="filter-btn active px-3.5 py-1.5 rounded-full border border-blue-500 bg-blue-50 text-blue-600 font-semibold whitespace-nowrap">Semua (35)</button>
+        <button onclick="setProvider('Anthropic')" data-provider="Anthropic" class="filter-btn px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 whitespace-nowrap">Anthropic (10)</button>
+        <button onclick="setProvider('Google')" data-provider="Google" class="filter-btn px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 whitespace-nowrap">Google (10)</button>
+        <button onclick="setProvider('Openai')" data-provider="Openai" class="filter-btn px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 whitespace-nowrap">OpenAI (5)</button>
+        <button onclick="setProvider('Xai')" data-provider="Xai" class="filter-btn px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 whitespace-nowrap">xAI (3)</button>
+        <button onclick="setProvider('Deepseek')" data-provider="Deepseek" class="filter-btn px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 whitespace-nowrap">DeepSeek (1)</button>
+        <button onclick="setProvider('Others')" data-provider="Others" class="filter-btn px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 whitespace-nowrap">Lainnya (6)</button>
       </div>
 
     </div>
 
     <!-- Data Table Card -->
-    <div class="bg-gray-900/60 border border-gray-800 rounded-2xl overflow-hidden shadow-2xl">
+    <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
       <div class="overflow-x-auto">
-        <table class="w-full text-left text-sm text-gray-300">
-          <thead class="bg-gray-950/80 text-xs uppercase tracking-wider text-gray-400 border-b border-gray-800">
+        <table class="w-full text-left text-sm text-gray-700">
+          <thead class="bg-gray-50 text-xs uppercase tracking-wider text-gray-500 border-b border-gray-200">
             <tr>
               <th scope="col" class="py-3.5 px-4 font-semibold">Model AI & Info</th>
-              <th scope="col" class="py-3.5 px-4 font-semibold">Penyedia & Sumber Retail</th>
+              <th scope="col" class="py-3.5 px-4 font-semibold">Penyedia</th>
               <th scope="col" class="py-3.5 px-4 font-semibold text-right">Harga OCTA (Input / 1M)</th>
               <th scope="col" class="py-3.5 px-4 font-semibold text-right">Harga OCTA (Output / 1M)</th>
               <th scope="col" class="py-3.5 px-4 font-semibold text-right">Retail Resmi (Input)</th>
               <th scope="col" class="py-3.5 px-4 font-semibold text-right">Retail Resmi (Output)</th>
-              <th scope="col" class="py-3.5 px-4 font-semibold text-center">Diskon / Hemat</th>
-              <th scope="col" class="py-3.5 px-4 font-semibold text-center">Kelayakan (Worthiness)</th>
+              <th scope="col" class="py-3.5 px-4 font-semibold text-center">Diskon</th>
+              <th scope="col" class="py-3.5 px-4 font-semibold text-center">Kelayakan</th>
             </tr>
           </thead>
-          <tbody id="modelsTableBody" class="divide-y divide-gray-800/60">
+          <tbody id="modelsTableBody" class="divide-y divide-gray-100 text-xs">
             <!-- Dynamic rows populated via JS -->
           </tbody>
         </table>
       </div>
-      <div class="px-4 py-3 bg-gray-950/60 border-t border-gray-800 text-xs text-gray-400 flex items-center justify-between">
+      <div class="px-4 py-3 bg-gray-50 border-t border-gray-200 text-xs text-gray-500 flex items-center justify-between">
         <div id="tableCounter">Menampilkan 35 dari 35 model AI</div>
-        <div>Semua mata uang dalam Rupiah (IDR). 1 Kredit = Rp 1.</div>
+        <div>Mata uang: Rupiah (IDR). Nilai patokan: 1 Kredit = Rp 1.</div>
       </div>
     </div>
 
-    <!-- Verified Sources Grid Section -->
-    <div class="mt-12">
-      <div class="flex items-center justify-between mb-4">
-        <div>
-          <h2 class="text-lg font-bold text-white flex items-center gap-2">
-            <span>🔗</span> Daftar Sumber Resmi Harga Retail (Verified Documentation)
-          </h2>
-          <p class="text-xs text-gray-400">Tautan dokumentasi resmi dan portal penagihan developer masing-masing penyedia model AI</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        <a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
-          <div>
-            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">Anthropic Claude API</div>
-            <div class="text-xs text-gray-400">anthropic.com/pricing</div>
-          </div>
-          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
-        </a>
-
-        <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
-          <div>
-            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">OpenAI API Pricing</div>
-            <div class="text-xs text-gray-400">openai.com/api/pricing</div>
-          </div>
-          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
-        </a>
-
-        <a href="https://ai.google.dev/pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
-          <div>
-            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">Google Gemini Developer API</div>
-            <div class="text-xs text-gray-400">ai.google.dev/pricing</div>
-          </div>
-          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
-        </a>
-
-        <a href="https://platform.deepseek.com/api_docs/pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
-          <div>
-            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">DeepSeek Open Platform</div>
-            <div class="text-xs text-gray-400">platform.deepseek.com</div>
-          </div>
-          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
-        </a>
-
-        <a href="https://docs.x.ai/docs/overview#pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
-          <div>
-            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">xAI Grok Developer Docs</div>
-            <div class="text-xs text-gray-400">docs.x.ai/overview#pricing</div>
-          </div>
-          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
-        </a>
-
-        <a href="https://platform.moonshot.cn/docs/pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
-          <div>
-            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">Moonshot AI (Kimi)</div>
-            <div class="text-xs text-gray-400">platform.moonshot.cn/pricing</div>
-          </div>
-          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
-        </a>
-
-        <a href="https://platform.minimaxi.com/document/pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
-          <div>
-            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">MiniMax Open Platform</div>
-            <div class="text-xs text-gray-400">platform.minimaxi.com/pricing</div>
-          </div>
-          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
-        </a>
-
-        <a href="https://www.alibabacloud.com/help/en/model-studio/developer-reference/billing-for-model-studio" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
-          <div>
-            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">Alibaba Cloud Model Studio (Qwen)</div>
-            <div class="text-xs text-gray-400">alibabacloud.com/model-studio</div>
-          </div>
-          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
-        </a>
-
-        <a href="https://open.bigmodel.cn/pricing" target="_blank" rel="noopener noreferrer" class="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-4 rounded-xl flex items-center justify-between group transition-colors">
-          <div>
-            <div class="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">Zhipu AI (GLM) Platform</div>
-            <div class="text-xs text-gray-400">open.bigmodel.cn/pricing</div>
-          </div>
-          <span class="text-gray-500 group-hover:text-white transition-colors text-xs">↗</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Analytical Deep Dive / Findings -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+    <!-- Analytical Takeaways (Google News Section) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
       
-      <div class="bg-gray-900/40 border border-gray-800 rounded-2xl p-6">
-        <div class="h-8 w-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold mb-3">✓</div>
-        <h3 class="text-base font-bold text-white mb-2">1. Keuntungan Pembayaran Rupiah</h3>
-        <p class="text-xs text-gray-400 leading-relaxed">
-          OCTA mengeliminasi biaya konversi mata uang asing (foreign exchange charge) dan spread kurs kartu kredit bank (yang umumnya mengenakan 2.5% - 4% di atas kurs tengah BI). Top-up dapat dilakukan dengan metode pembayaran domestik (QRIS, VA Bank, Pulsa Telkomsel).
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <div class="h-8 w-8 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center font-bold mb-3">✓</div>
+        <h3 class="text-sm font-bold text-gray-900 mb-2">1. Bebas Risiko Kurs Valas</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          OCTA mengeliminasi biaya konversi valas dan spread kurs kartu kredit bank (yang biasanya 2.5% - 4% di atas kurs tengah BI). Top-up saldo dapat dilakukan dengan metode pembayaran domestik (QRIS, VA Bank, Pulsa).
         </p>
       </div>
 
-      <div class="bg-gray-900/40 border border-gray-800 rounded-2xl p-6">
-        <div class="h-8 w-8 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center font-bold mb-3">⇄</div>
-        <h3 class="text-base font-bold text-white mb-2">2. Single API Balance (Multi-Model)</h3>
-        <p class="text-xs text-gray-400 leading-relaxed">
-          Alih-alih mengikat deposit prepaid minimum $5–$20 di masing-masing platform terpisah (OpenAI, Anthropic Console, Google Cloud Vertex, xAI), pengguna cukup mengisi 1 saldo OCTA Kredit untuk mengakses 35 model sekaligus tanpa saldo idle di banyak akun.
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <div class="h-8 w-8 rounded-lg bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center font-bold mb-3">⇄</div>
+        <h3 class="text-sm font-bold text-gray-900 mb-2">2. Single API Balance (Multi-Model)</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          Pengguna tidak perlu mengendapkan deposit minimum $5–$20 di banyak platform berbeda (OpenAI, Anthropic, Vertex, xAI). 1 saldo kredit OCTA langsung mengakses 35 model tanpa dana tertahan di banyak akun.
         </p>
       </div>
 
-      <div class="bg-gray-900/40 border border-gray-800 rounded-2xl p-6">
-        <div class="h-8 w-8 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center font-bold mb-3">★</div>
-        <h3 class="text-base font-bold text-white mb-2">3. Rekomendasi Model Paling Layak</h3>
-        <p class="text-xs text-gray-400 leading-relaxed">
-          <strong class="text-gray-200">Claude Sonnet 5</strong> & <strong class="text-gray-200">GPT-4o</strong> sangat ekonomis untuk pekerjaan analitis harian. Untuk batch task otomatis bervolume tinggi, <strong class="text-gray-200">Gemini 3.1 Flash Lite</strong> dan <strong class="text-gray-200">GPT-4o Mini</strong> memberikan rasio cost-to-performance terbaik.
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <div class="h-8 w-8 rounded-lg bg-purple-50 border border-purple-200 text-purple-600 flex items-center justify-center font-bold mb-3">★</div>
+        <h3 class="text-sm font-bold text-gray-900 mb-2">3. Rekomendasi Flagship</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          <strong class="text-gray-800">Claude Sonnet 5</strong> & <strong class="text-gray-800">GPT-4o</strong> sangat hemat untuk kebutuhan harian. Untuk batch task otomatis bervolume tinggi, <strong class="text-gray-800">Gemini 3.1 Flash Lite</strong> dan <strong class="text-gray-800">GPT-4o Mini</strong> memberikan rasio cost-to-performance terbaik.
         </p>
       </div>
 
@@ -296,9 +227,9 @@
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-gray-800 py-6 bg-gray-950 mt-12 text-center text-xs text-gray-500">
+  <footer class="border-t border-gray-200 py-6 bg-white mt-12 text-center text-xs text-gray-500">
     <div class="max-w-7xl mx-auto px-4">
-      Laporan perbandingan harga resmi di-generate secara otomatis via <strong>Dora AI Research Engine</strong> &middot; Hosting di <strong>LXC g4-apps</strong> &middot; report.aneta.my.id
+      Laporan intelligence & komparasi tarif resmi &middot; Aneta Reports Platform &middot; report.aneta.my.id
     </div>
   </footer>
 
@@ -330,38 +261,33 @@
 
       filtered.forEach(m => {
         const tr = document.createElement('tr');
-        tr.className = 'hover:bg-gray-800/40 transition-colors';
+        tr.className = 'hover:bg-blue-50/50 transition-colors';
 
         // Badge color
-        let badgeClass = 'bg-blue-500/10 text-blue-400 border border-blue-500/30';
+        let badgeClass = 'bg-blue-50 text-blue-600 border border-blue-200';
         if (m.worth_badge === 'Sangat Tinggi') {
-          badgeClass = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
+          badgeClass = 'bg-emerald-50 text-emerald-600 border border-emerald-200';
         } else if (m.worth_badge === 'Cukup') {
-          badgeClass = 'bg-amber-500/10 text-amber-400 border border-amber-500/30';
+          badgeClass = 'bg-amber-50 text-amber-600 border border-amber-200';
         }
 
         tr.innerHTML = `
-          <td class="py-3 px-4 font-medium text-white">
+          <td class="py-3 px-4 font-medium text-gray-900">
             <div class="flex items-center gap-2">
-              <span class="font-mono text-sm font-semibold">${m.name}</span>
-              ${m.mode === 'image_generation' ? '<span class="text-[10px] bg-fuchsia-500/20 text-fuchsia-300 px-1.5 py-0.5 rounded border border-fuchsia-500/30">Image</span>' : ''}
+              <span class="font-mono text-xs font-semibold">${m.name}</span>
+              ${m.mode === 'image_generation' ? '<span class="text-[10px] bg-purple-50 text-purple-600 px-1.5 py-0.5 rounded border border-purple-200">Image</span>' : ''}
             </div>
-            <div class="text-[11px] text-gray-500">Context: ${m.context} &middot; Platform Disc: ${m.discount_platform}%</div>
+            <div class="text-[11px] text-gray-400">Context: ${m.context} &middot; Disc: ${m.discount_platform}%</div>
           </td>
           <td class="py-3 px-4">
-            <div class="flex flex-col gap-1 items-start">
-              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-800 text-gray-300">
-                ${m.provider}
-              </span>
-              <a href="${m.source.url}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-gray-500 hover:text-red-400 flex items-center gap-0.5 transition-colors">
-                <span>Sumber</span> <span>↗</span>
-              </a>
-            </div>
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-700">
+              ${m.provider}
+            </span>
           </td>
-          <td class="py-3 px-4 text-right font-mono font-medium text-white">
+          <td class="py-3 px-4 text-right font-mono font-medium text-gray-900">
             ${formatRupiah(m.in_octa)}
           </td>
-          <td class="py-3 px-4 text-right font-mono font-medium text-white">
+          <td class="py-3 px-4 text-right font-mono font-medium text-gray-900">
             ${formatRupiah(m.out_octa)}
           </td>
           <td class="py-3 px-4 text-right font-mono text-xs text-gray-400">
@@ -371,17 +297,14 @@
             ${formatRupiah(m.out_retail)}
           </td>
           <td class="py-3 px-4 text-center">
-            <span class="font-mono text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">
+            <span class="font-mono text-xs font-bold text-emerald-600 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
               -${m.avg_pct_save}%
             </span>
           </td>
           <td class="py-3 px-4 text-center">
-            <div class="inline-flex flex-col items-center">
-              <span class="text-xs px-2 py-0.5 rounded-full font-medium ${badgeClass}">
-                ${m.worth_badge}
-              </span>
-              <span class="text-[10px] text-gray-500 mt-0.5 max-w-[140px] truncate" title="${m.worth_reason}">${m.worth_reason}</span>
-            </div>
+            <span class="text-xs px-2.5 py-0.5 rounded-full font-medium ${badgeClass}">
+              ${m.worth_badge}
+            </span>
           </td>
         `;
         tbody.appendChild(tr);
