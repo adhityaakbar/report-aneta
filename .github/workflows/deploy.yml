@@ -84,6 +84,11 @@ jobs:
               sudo systemctl restart aneta-research.service || true
             fi
 
+            # Configure Nginx reverse proxy for /api/
+            if [ -f configure_nginx.py ]; then
+              sudo python3 configure_nginx.py || true
+            fi
+
             # Reload Nginx service
             echo '==> Reloading Nginx...'
             if command -v systemctl >/dev/null 2>&1; then
