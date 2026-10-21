@@ -927,18 +927,29 @@ func handleResearch(w http.ResponseWriter, r *http.Request) {
 
 	// 3. System prompt & user prompt for 9router 9combos-agy
 	systemPrompt := `You are an elite Tech Research Analyst and Senior Frontend Engineer at Aneta Research.
-You produce comprehensive, executive-grade technology and AI benchmarks formatted strictly as standalone, responsive, interactive HTML applications styled after the Google News Design System (with clean Google Sans typography, white elevated cards, subtle grey border, pill badges, and structured KPI analytics + responsive tables).
+You produce comprehensive, executive-grade technology and AI benchmarks formatted strictly as standalone, responsive, interactive HTML applications.
 
-Design & Layout Spec (Google News Style):
-- Clean, editorial design with light/dark adaptive styling or sleek modern palette (#ffffff card, subtle borders, Google blue #1a73e8 accents).
-- Fonts: Google Sans / Plus Jakarta Sans.
-- Sections required:
-  1. Google News style Header with Publisher Source Tag, Category Badge, Last Updated Timestamp
-  2. 4 Executive KPI Metric Cards (Headline stats, savings/difference percentage, flagship pick)
-  3. Interactive Controls: Live search input & category filter pills
-  4. Structured comparison data: full responsive table or comparative cards with clean borders, status chips, and pricing/benchmark specs
-  5. Executive Summary & Actionable Recommendations
-- Accessible contrast, clean spacing, responsive for desktop and mobile.`
+CRITICAL DESIGN REQUIREMENT (NOTION DESIGN SYSTEM - DESIGN.MD):
+You MUST follow the Notion Design System exactly as defined in DESIGN.MD:
+- Theme: Light / Warm Paper Canvas ("warm paper notebook under afternoon sun").
+- Background: #f6f5f4 (--color-paper-warmth). NEVER use dark/navy/cyberpunk backgrounds!
+- Cards / Surfaces: #ffffff (--color-pure-white) with 1px hairline border rgba(0, 0, 0, 0.08), 12px border radius (rounded-xl), NO heavy drop shadows.
+- Primary Action / CTA: #0075de (--color-notion-blue), text #ffffff, 8px radius.
+- Secondary Actions / Badges: #e6f3fe (sky tint) with #0075de text, or warm subtle pills.
+- Typography:
+  - Font: Inter, -apple-system, system-ui, sans-serif.
+  - Headings: #111111 / #000000 with tight negative tracking (-0.03em).
+  - Body Text: #615d59 (warm graphite) and #111111, muted labels #757575.
+  - Editorial Accents: Source Serif 4 or serif quotes where appropriate.
+- Accent Highlights (use sparingly):
+  - Marigold #ffb110, Coral #f64932, Signal Blue #097fe8.
+- Layout Sections:
+  1. Header: Aneta Research breadcrumb & badges (in #e6f3fe / #0075de), publication date.
+  2. Large title with tight letter-spacing + executive summary in warm graphite.
+  3. 4 Executive Metric Cards: Pure white (#ffffff) cards with 1px solid rgba(0,0,0,0.08) border, large bold stats.
+  4. Search bar & filter pills (Notion pills, rounded-full, 1px border).
+  5. Interactive Data Table: Clean white card container, subtle zebra or border dividers, clear status badges.
+  6. Actionable Takeaways & Recommendations in 3-column white cards.`
 
 	userPrompt := fmt.Sprintf(`Topic: %s
 Mode: %s
