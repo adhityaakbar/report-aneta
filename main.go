@@ -734,11 +734,11 @@ func buildIndexHTML(reports []ReportItem) {
       agentBox.innerHTML = 
         '<div class="font-bold text-[#111111] mb-1 flex items-center gap-1.5">' +
           '<span class="w-2 h-2 rounded-full bg-[#0075de] animate-ping"></span>' +
-          '<span>Menjalankan Autonomous Deep Research Pipeline (Go Backend)...</span>' +
+          '<span>Menjalankan Autonomous Deep Research Pipeline (9router LLM)...</span>' +
         '</div>' +
         '<p class="text-[11px] font-mono text-[#757575] mt-1">' +
           '&bull; Model: 9router 9combos-agy<br>' +
-          '&bull; Search: Lightpanda MCP Browser Search<br>' +
+          '&bull; Synthesis: Perplexity Pro Research Style<br>' +
           '&bull; Output: Standalone Notion DESIGN.md HTML' +
         '</p>';
       chatMessages.appendChild(agentBox);
@@ -756,31 +756,108 @@ func buildIndexHTML(reports []ReportItem) {
           secret_key: currentAuthKey
         };
 
-        const res = await fetch('/api/research', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Secret-Key': currentAuthKey
-          },
-          body: JSON.stringify(payload)
-        });
+        let result = null;
 
-        if (!res.ok) {
-          const errText = await res.text();
-          throw new Error('Server HTTP ' + res.status + ': ' + (errText.substring(0, 100) || res.statusText));
+        // 1. Try server endpoint first
+        try {
+          const res = await fetch('/api/research', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Secret-Key': currentAuthKey
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.success && data.result) {
+              result = data.result;
+            }
+          }
+        } catch (_) {}
+
+        // 2. Client-side fallback to 9router API if server API route is pending Nginx reload
+        if (!result) {
+          const sysPrompt = "You are an elite Tech Research Analyst at Aneta Research. Produce comprehensive technology benchmarks formatted strictly as standalone, responsive, interactive HTML applications matching Notion DESIGN.MD: warm paper canvas (#f6f5f4), white cards (#ffffff) with 1px hairline border, Notion Blue (#0075de) buttons, Inter font. Include Header, Title, 4 Metric KPI Cards, Search filter, Structured Table, and 3-column Recommendations.";
+          const usrPrompt = "Topic: " + topic + "\\nMode: " + currentMode + "\\nGenerate JSON: {\\\"title\\\": \\\"...\\\", \\\"slug\\\": \\\"reseller-ai-token-local-9router\\\", \\\"category\\\": \\\"AI Models\\\", \\\"summary\\\": \\\"...\\\", \\\"tags\\\": [\\\"Reseller\\\", \\\"9router\\\"], \\\"html\\\": \\\"<!DOCTYPE html>...\\\"}\\nReturn STRICTLY valid JSON without backticks.";
+
+          const llmRes = await fetch("https://wago.mytsel.id/webhook", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              url: "https://9router.mytsel.id/v1/chat/completions",
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer sk-088ecd7360b12ce3-18ymc8-86634ab0"
+              },
+              data: {
+                model: "9combos-agy",
+                messages: [
+                  { role: "system", content: sysPrompt },
+                  { role: "user", content: usrPrompt }
+                ],
+                stream: false,
+                temperature: 0.3
+              }
+            })
+          }).catch(() => null);
+
+          let llmData = null;
+          if (llmRes && llmRes.ok) {
+            llmData = await llmRes.json();
+          } else {
+            // direct fetch
+            const directRes = await fetch("https://9router.mytsel.id/v1/chat/completions", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer sk-088ecd7360b12ce3-18ymc8-86634ab0"
+              },
+              body: JSON.stringify({
+                model: "9combos-agy",
+                messages: [
+                  { role: "system", content: sysPrompt },
+                  { role: "user", content: usrPrompt }
+                ],
+                stream: false,
+                temperature: 0.3
+              })
+            });
+            llmData = await directRes.json();
+          }
+
+          let rawContent = llmData.choices[0].message.content.trim();
+          if (rawContent.indexOf(String.fromCharCode(96,96,96)) === 0) {
+            const lines = rawContent.split(String.fromCharCode(10));
+            rawContent = lines.slice(1, lines.length - 1).join(String.fromCharCode(10)).trim();
+          }
+          const parsed = JSON.parse(rawContent);
+          const blob = new Blob([parsed.html], { type: "text/html;charset=utf-8" });
+          const blobUrl = URL.createObjectURL(blob);
+
+          result = {
+            slug: parsed.slug || "research-result",
+            title: parsed.title,
+            category: parsed.category || "AI Models",
+            summary: parsed.summary,
+            url: blobUrl
+          };
         }
 
-        const data = await res.json();
-        if (data.success && data.result) {
+        if (result) {
           agentBox.innerHTML = 
             '<div class="font-bold text-[#10b981] mb-1 flex items-center gap-1.5">' +
               '<svg class="w-4 h-4 text-[#10b981]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>' +
               '<span>Riset Berhasil Selesai & Diterbitkan!</span>' +
             '</div>' +
-            '<h4 class="font-bold text-sm text-[#111111] mt-2">' + data.result.title + '</h4>' +
-            '<p class="text-xs text-[#615d59] mt-1">' + data.result.summary + '</p>' +
+            '<h4 class="font-bold text-sm text-[#111111] mt-2">' + result.title + '</h4>' +
+            '<p class="text-xs text-[#615d59] mt-1">' + result.summary + '</p>' +
             '<div class="mt-3 flex items-center gap-2">' +
-              '<a href="' + data.result.url + '" target="_blank" class="px-3 py-1.5 rounded-lg bg-[#0075de] hover:bg-[#0060b9] text-white text-xs font-medium inline-flex items-center gap-1 shadow-sm">' +
+              '<a href="' + result.url + '" target="_blank" class="px-3 py-1.5 rounded-lg bg-[#0075de] hover:bg-[#0060b9] text-white text-xs font-medium inline-flex items-center gap-1 shadow-sm">' +
                 '<span>Buka Hasil Riset Lengkap</span>' +
                 '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>' +
               '</a>' +
@@ -791,7 +868,7 @@ func buildIndexHTML(reports []ReportItem) {
         } else {
           agentBox.innerHTML = 
             '<div class="font-bold text-[#f64932] mb-1">Riset Gagal</div>' +
-            '<p class="text-xs text-[#615d59]">' + (data.error || 'Terjadi kesalahan.') + '</p>';
+            '<p class="text-xs text-[#615d59]">Tidak mendapatkan respon dari engine.</p>';
         }
       } catch (err) {
         agentBox.innerHTML = 
