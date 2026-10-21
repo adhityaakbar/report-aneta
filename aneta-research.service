@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/var/www/report
-Environment="PORT=8088"
+Environment="PORT=8081"
 Environment="PATH=/usr/local/go/bin:/usr/local/bin:/usr/bin:/bin:/home/apps/.local/bin"
 ExecStart=/var/www/report/aneta-api
 Restart=always
