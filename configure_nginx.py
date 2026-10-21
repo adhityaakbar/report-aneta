@@ -35,8 +35,9 @@ enabled_target = "/etc/nginx/sites-enabled/report.aneta.my.id"
 try:
     with open(available_target, "w", encoding="utf-8") as f:
         f.write(nginx_conf)
-    if not os.path.exists(enabled_target):
-        os.symlink(available_target, enabled_target)
+    if os.path.islink(enabled_target) or os.path.exists(enabled_target):
+        os.remove(enabled_target)
+    os.symlink(available_target, enabled_target)
     print(f"[nginx] Configured {available_target} and symlinked to {enabled_target}")
     subprocess.run(["nginx", "-t"], check=False)
     subprocess.run(["systemctl", "reload", "nginx"], check=False)

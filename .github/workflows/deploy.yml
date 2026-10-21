@@ -77,7 +77,9 @@ jobs:
             sudo chown -R www-data:www-data /var/www/report || true
             sudo chmod -R 755 /var/www/report
 
-            # Install systemd service for Go API backend if not running
+            # Restart systemd service cleanly: kill any old process on port 8088 first
+            sudo fuser -k 8088/tcp 2>/dev/null || true
+            sudo pkill -f aneta-api 2>/dev/null || true
             if [ -f aneta-research.service ]; then
               sudo cp aneta-research.service /etc/systemd/system/
               sudo chmod 644 /etc/systemd/system/aneta-research.service
@@ -89,14 +91,15 @@ jobs:
               sudo systemctl status aneta-research.service --no-pager || true
             fi
 
-            # Ensure Nginx sites-available/default proxies /api/
-            sudo sed -i '/location \/api\//d' /etc/nginx/sites-available/default 2>/dev/null || true
-            sudo sed -i '/proxy_pass http:\/\/127.0.0.1:8088/d' /etc/nginx/sites-available/default 2>/dev/null || true
-            sudo sed -i '/server_name/a \    location /api/ { proxy_pass http://127.0.0.1:8088; proxy_set_header Host $host; proxy_read_timeout 300s; }' /etc/nginx/sites-available/default || true
+            # Clean duplicate report.aneta.my.id configs in sites-enabled / conf.d
+            sudo rm -f /etc/nginx/sites-enabled/default 2>/dev/null || true
+            sudo rm -f /etc/nginx/conf.d/report.aneta.my.id.conf 2>/dev/null || true
+            sudo rm -f /etc/nginx/conf.d/aneta-api-proxy.conf 2>/dev/null || true
 
-            # Debug aneta-api failure
-            sudo journalctl -u aneta-research.service -n 20 --no-pager || true
-            /var/www/report/aneta-api build || true
+            # Configure Nginx reverse proxy for /api/
+            if [ -f configure_nginx.py ]; then
+              sudo python3 configure_nginx.py
+            fi
             echo '==> Deployment to report.aneta.my.id successfully completed!'
           "
 
